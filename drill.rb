@@ -16,7 +16,22 @@
 # end
 # -------------------------
 # Rubyドリル03
-scores = {japanese_score: 80, english_score: 50, math_score: 70}
-average_score = scores.values.reduce(:+) / scores.length
+# scores = {japanese_score: 80, english_score: 50, math_score: 70}
+# average_score = scores.values.reduce(:+) / scores.length
 
-puts "3教科の平均点は#{average_score}点です。"
+# puts "3教科の平均点は#{average_score}点です。"
+# -------------------------
+# Rubyドリル04
+class Article
+  attr_accessor :author, :title, :content
+  def initialize(author, title, content)
+    @author = author
+    @title = title
+    @content = content
+  end
+end
+
+article = Article.new("阿部", "Rubyの素晴らしさについて", "Awesome Ruby!")
+puts "著者: #{article.author}"
+puts "タイトル: #{article.title}"
+puts "本文: #{article.content}"
