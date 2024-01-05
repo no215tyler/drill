@@ -38,13 +38,19 @@
 # -------------------------
 # Rubyドリル05
 #メソッド定義時に仮引数を設定できていないため
-price = 300
+# price = 300
 
-def calculate_price_with_tax(price)
-  tax = 0.1
-  return price + price * tax
-end
+# def calculate_price_with_tax(price)
+#   tax = 0.1
+#   return price + price * tax
+# end
 
-calculate_price_with_tax(price)
+# calculate_price_with_tax(price)
 # -------------------------
 # Rubyドリル06
+def get_weather_forecast(weather)
+  puts "明日の天気は#{weather}です"
+end
+
+get_weather_forecast("晴れ")
+# -------------------------
