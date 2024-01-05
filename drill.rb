@@ -22,16 +22,29 @@
 # puts "3教科の平均点は#{average_score}点です。"
 # -------------------------
 # Rubyドリル04
-class Article
-  attr_accessor :author, :title, :content
-  def initialize(author, title, content)
-    @author = author
-    @title = title
-    @content = content
-  end
+# class Article
+#   attr_accessor :author, :title, :content
+#   def initialize(author, title, content)
+#     @author = author
+#     @title = title
+#     @content = content
+#   end
+# end
+
+# article = Article.new("阿部", "Rubyの素晴らしさについて", "Awesome Ruby!")
+# puts "著者: #{article.author}"
+# puts "タイトル: #{article.title}"
+# puts "本文: #{article.content}"
+# -------------------------
+# Rubyドリル05
+#メソッド定義時に仮引数を設定できていないため
+price = 300
+
+def calculate_price_with_tax(price)
+  tax = 0.1
+  return price + price * tax
 end
 
-article = Article.new("阿部", "Rubyの素晴らしさについて", "Awesome Ruby!")
-puts "著者: #{article.author}"
-puts "タイトル: #{article.title}"
-puts "本文: #{article.content}"
+calculate_price_with_tax(price)
+# -------------------------
+# Rubyドリル06
