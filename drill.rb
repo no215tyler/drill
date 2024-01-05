@@ -48,9 +48,21 @@
 # calculate_price_with_tax(price)
 # -------------------------
 # Rubyドリル06
-def get_weather_forecast(weather)
-  puts "明日の天気は#{weather}です"
-end
+# def get_weather_forecast(weather)
+#   puts "明日の天気は#{weather}です"
+# end
 
-get_weather_forecast("晴れ")
+# get_weather_forecast("晴れ")
 # -------------------------
+# Rubyドリル07
+require "date"
+
+today_week_num = Date.today.wday
+
+week_array = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
+case today_week_num
+when 5
+  puts "今日は#{week_array[today_week_num]}だ!!!"
+else
+  puts "今日は#{week_array[today_week_num]}"
+end
