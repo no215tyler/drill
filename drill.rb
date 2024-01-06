@@ -54,15 +54,22 @@
 
 # get_weather_forecast("晴れ")
 # -------------------------
-# Rubyドリル07
-require "date"
+# # Rubyドリル07
+# require "date"
 
-today_week_num = Date.today.wday
+# today_week_num = Date.today.wday
 
-week_array = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
-case today_week_num
-when 5
-  puts "今日は#{week_array[today_week_num]}だ!!!"
-else
-  puts "今日は#{week_array[today_week_num]}"
+# week_array = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
+# case today_week_num
+# when 5
+#   puts "今日は#{week_array[today_week_num]}だ!!!"
+# else
+#   puts "今日は#{week_array[today_week_num]}"
+# end
+# -------------------------
+# Rubyドリル08
+a = 0
+b = 0
+unless a + b <= 0
+  puts "計算結果は0より大きいです"
 end
