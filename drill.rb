@@ -67,9 +67,18 @@
 #   puts "今日は#{week_array[today_week_num]}"
 # end
 # -------------------------
-# Rubyドリル08
-a = 0
-b = 0
-unless a + b <= 0
-  puts "計算結果は0より大きいです"
+# # Rubyドリル08
+# a = 0
+# b = 0
+# unless a + b <= 0
+#   puts "計算結果は0より大きいです"
+# end
+# -------------------------
+# Rubyドリル09
+result = 0
+10.times do |num|
+  result += (num + 1)
 end
+puts result
+# -------------------------
+# Rubyドリル10
