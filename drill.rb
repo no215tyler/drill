@@ -75,10 +75,24 @@
 # end
 # -------------------------
 # Rubyドリル09
-result = 0
-10.times do |num|
-  result += (num + 1)
-end
-puts result
+# result = 0
+# 10.times do |num|
+#   result += (num + 1)
+# end
+# puts result
 # -------------------------
 # Rubyドリル10
+def search(target_num, input)
+  input.each_with_index do |num, i|
+    if num == target_num
+      puts "#{i + 1}番目にあります"
+      exit
+    else
+    end
+  end
+  puts "その数は含まれていません"
+end
+
+input = [3, 5, 9 ,12, 15, 21, 29, 35, 42, 51, 62, 78, 81, 87, 92, 93]
+# 呼び出し例
+search(7, input)
