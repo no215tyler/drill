@@ -114,12 +114,23 @@
 # check_name(str)
 # -------------------------
 # Rubyドリル12
-input = gets.to_i
+# input = gets.to_i
 
-if input <= 0
-  puts "0以下の数字です"
-elsif input <= 10
-  puts "10以下の数字です"
-else
-  puts "10より大きい数字です"
+# if input <= 0
+#   puts "0以下の数字です"
+# elsif input <= 10
+#   puts "10以下の数字です"
+# else
+#   puts "10より大きい数字です"
+# end
+# -------------------------
+# Rubyドリル13
+fruits_price = [["apple", [200, 250, 220]], ["orange", [100, 120, 80]], ["melon", [1200, 1500]]]
+
+fruits_price.each do |fruits|
+  price = 0
+  fruits[1].each do |fruit_price|
+    price += fruit_price
+  end
+  puts "#{fruits[0]}の合計金額は#{price}円です"
 end
