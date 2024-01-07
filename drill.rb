@@ -136,16 +136,27 @@
 # end
 # -------------------------
 # Rubyドリル14
-def in1to10(num, outside_mode)
-  if outside_mode
-    puts "True"
-  elsif num >= 1 && num <= 10
-    puts "True"
-  else
-    puts "False"
+# def in1to10(num, outside_mode)
+#   if outside_mode
+#     puts "True"
+#   elsif num >= 1 && num <= 10
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# in1to10(5,false)
+# in1to10(11,false) 
+# in1to10(11,true)
+# -------------------------
+# Rubyドリル15
+def output(input)
+  input.times do
+    puts "Hello!"
   end
 end
 
-in1to10(5,false)
-in1to10(11,false) 
-in1to10(11,true)
+puts "何回表示させますか？"
+input = gets.to_i
+output(input)
