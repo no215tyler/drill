@@ -125,12 +125,27 @@
 # end
 # -------------------------
 # Rubyドリル13
-fruits_price = [["apple", [200, 250, 220]], ["orange", [100, 120, 80]], ["melon", [1200, 1500]]]
+# fruits_price = [["apple", [200, 250, 220]], ["orange", [100, 120, 80]], ["melon", [1200, 1500]]]
 
-fruits_price.each do |fruits|
-  price = 0
-  fruits[1].each do |fruit_price|
-    price += fruit_price
+# fruits_price.each do |fruits|
+#   price = 0
+#   fruits[1].each do |fruit_price|
+#     price += fruit_price
+#   end
+#   puts "#{fruits[0]}の合計金額は#{price}円です"
+# end
+# -------------------------
+# Rubyドリル14
+def in1to10(num, outside_mode)
+  if outside_mode
+    puts "True"
+  elsif num >= 1 && num <= 10
+    puts "True"
+  else
+    puts "False"
   end
-  puts "#{fruits[0]}の合計金額は#{price}円です"
 end
+
+in1to10(5,false)
+in1to10(11,false) 
+in1to10(11,true)
