@@ -162,32 +162,39 @@
 # output(input)
 # -------------------------
 # Rubyドリル16
-class Fruit
-  def self.flesh
-    puts "採れたて新鮮な果実です"
-  end
+# class Fruit
+#   def self.flesh
+#     puts "採れたて新鮮な果実です"
+#   end
  
-  def initialize(name, price)
-    @name = name
-    @price = price
-  end
+#   def initialize(name, price)
+#     @name = name
+#     @price = price
+#   end
  
-  def introduce
-    puts "#{@name}は#{@price}円です"
-  end
- end
+#   def introduce
+#     puts "#{@name}は#{@price}円です"
+#   end
+#  end
  
  
- # 3つのインスタンスを生成してください
-apple = Fruit.new("リンゴ", 120)
-orange = Fruit.new("オレンジ", 200)
-strawberry = Fruit.new("イチゴ", 60)
+#  # 3つのインスタンスを生成してください
+# apple = Fruit.new("リンゴ", 120)
+# orange = Fruit.new("オレンジ", 200)
+# strawberry = Fruit.new("イチゴ", 60)
  
- # クラスメソッドを呼び出し、「採れたて新鮮な果実です」と表示してください
- Fruit.flesh
- # インスタンス毎にインスタンスメソッドを呼び出し、「【名前】は【価格】円です」と表示してください
- apple.introduce
- orange.introduce
- strawberry.introduce
- # -------------------------
- 
+#  # クラスメソッドを呼び出し、「採れたて新鮮な果実です」と表示してください
+#  Fruit.flesh
+#  # インスタンス毎にインスタンスメソッドを呼び出し、「【名前】は【価格】円です」と表示してください
+#  apple.introduce
+#  orange.introduce
+#  strawberry.introduce
+# -------------------------
+# Rubyドリル17
+def missing_char(str, n)
+  string = str
+  string.slice!(n - 1)
+  puts string
+end
+
+missing_char('kitten', 1)
