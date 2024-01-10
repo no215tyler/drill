@@ -191,10 +191,24 @@
 #  strawberry.introduce
 # -------------------------
 # Rubyドリル17
-def missing_char(str, n)
-  string = str
-  string.slice!(n - 1)
-  puts string
+# def missing_char(str, n)
+#   string = str
+#   string.slice!(n - 1)
+#   puts string
+# end
+
+# missing_char('kitten', 1)
+# -------------------------
+# Rubyドリル18
+def police_trouble(a, b)
+  if (a && b) || (a == false && b == false)
+    puts "True"
+  else
+    puts "False"
+  end
 end
 
-missing_char('kitten', 1)
+police_trouble(true, true) # => true
+police_trouble(false, false) # => true
+police_trouble(true, false) # => false
+
