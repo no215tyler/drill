@@ -82,17 +82,150 @@
 # puts result
 # -------------------------
 # Rubyドリル10
-def search(target_num, input)
-  input.each_with_index do |num, i|
-    if num == target_num
-      puts "#{i + 1}番目にあります"
-      exit
-    else
-    end
-  end
-  puts "その数は含まれていません"
+# def search(target_num, input)
+#   input.each_with_index do |num, i|
+#     if num == target_num
+#       puts "#{i + 1}番目にあります"
+#       exit
+#     else
+#     end
+#   end
+#   puts "その数は含まれていません"
+# end
+
+# input = [3, 5, 9 ,12, 15, 21, 29, 35, 42, 51, 62, 78, 81, 87, 92, 93]
+# # 呼び出し例
+# search(7, input)
+# -------------------------
+# Rubyドリル11
+# def check_name(str) 
+#   case 
+#   when str.include?(" ")
+#     puts "!エラー!空白は登録できません"
+#   when str.include?(".")
+#     puts "!エラー!記号は登録できません"
+#   else
+#     puts "登録が完了しました"
+#   end
+# end
+
+# puts "登録したい名前を入力してください(例)YamadaTaro"
+# str = gets.chomp
+# check_name(str)
+# -------------------------
+# Rubyドリル12
+# input = gets.to_i
+
+# if input <= 0
+#   puts "0以下の数字です"
+# elsif input <= 10
+#   puts "10以下の数字です"
+# else
+#   puts "10より大きい数字です"
+# end
+# -------------------------
+# Rubyドリル13
+# fruits_price = [["apple", [200, 250, 220]], ["orange", [100, 120, 80]], ["melon", [1200, 1500]]]
+
+# fruits_price.each do |fruits|
+#   price = 0
+#   fruits[1].each do |fruit_price|
+#     price += fruit_price
+#   end
+#   puts "#{fruits[0]}の合計金額は#{price}円です"
+# end
+# -------------------------
+# Rubyドリル14
+# def in1to10(num, outside_mode)
+#   if outside_mode
+#     puts "True"
+#   elsif num >= 1 && num <= 10
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# in1to10(5,false)
+# in1to10(11,false) 
+# in1to10(11,true)
+# -------------------------
+# Rubyドリル15
+# def output(input)
+#   input.times do
+#     puts "Hello!"
+#   end
+# end
+
+# puts "何回表示させますか？"
+# input = gets.to_i
+# output(input)
+# -------------------------
+# Rubyドリル16
+# class Fruit
+#   def self.flesh
+#     puts "採れたて新鮮な果実です"
+#   end
+ 
+#   def initialize(name, price)
+#     @name = name
+#     @price = price
+#   end
+ 
+#   def introduce
+#     puts "#{@name}は#{@price}円です"
+#   end
+#  end
+ 
+ 
+#  # 3つのインスタンスを生成してください
+# apple = Fruit.new("リンゴ", 120)
+# orange = Fruit.new("オレンジ", 200)
+# strawberry = Fruit.new("イチゴ", 60)
+ 
+#  # クラスメソッドを呼び出し、「採れたて新鮮な果実です」と表示してください
+#  Fruit.flesh
+#  # インスタンス毎にインスタンスメソッドを呼び出し、「【名前】は【価格】円です」と表示してください
+#  apple.introduce
+#  orange.introduce
+#  strawberry.introduce
+# -------------------------
+# Rubyドリル17
+# def missing_char(str, n)
+#   string = str
+#   string.slice!(n - 1)
+#   puts string
+# end
+
+# missing_char('kitten', 1)
+# -------------------------
+# Rubyドリル18
+# def police_trouble(a, b)
+#   if (a && b) || (a == false && b == false)
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# police_trouble(true, true) # => true
+# police_trouble(false, false) # => true
+# police_trouble(true, false) # => false
+# -------------------------
+# Rubyドリル19
+# def count_hi(str)
+#   puts str.scan("hi").length
+# end
+
+# count_hi('abc hi ho') # → 1
+# count_hi('ABChi hi') # → 2
+# count_hi('hihi') # → 2
+# -------------------------
+# Rubyドリル20
+def count_code(str)
+  puts str.index("code") + 1
 end
 
-input = [3, 5, 9 ,12, 15, 21, 29, 35, 42, 51, 62, 78, 81, 87, 92, 93]
-# 呼び出し例
-search(7, input)
+count_code("codexxcode") # → 1
+count_code("aaacodebbb") # → 4
+count_code("cozexxcode") # → 7
