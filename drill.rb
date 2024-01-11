@@ -213,10 +213,19 @@
 # police_trouble(true, false) # => false
 # -------------------------
 # Rubyドリル19
-def count_hi(str)
-  puts str.scan("hi").length
+# def count_hi(str)
+#   puts str.scan("hi").length
+# end
+
+# count_hi('abc hi ho') # → 1
+# count_hi('ABChi hi') # → 2
+# count_hi('hihi') # → 2
+# -------------------------
+# Rubyドリル20
+def count_code(str)
+  puts str.index("code") + 1
 end
 
-count_hi('abc hi ho') # → 1
-count_hi('ABChi hi') # → 2
-count_hi('hihi') # → 2
+count_code("codexxcode") # → 1
+count_code("aaacodebbb") # → 4
+count_code("cozexxcode") # → 7
