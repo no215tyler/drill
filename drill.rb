@@ -222,10 +222,26 @@
 # count_hi('hihi') # → 2
 # -------------------------
 # Rubyドリル20
-def count_code(str)
-  puts str.index("code") + 1
-end
+# def count_code(str)
+#   puts str.index("code") + 1
+# end
 
-count_code("codexxcode") # → 1
-count_code("aaacodebbb") # → 4
-count_code("cozexxcode") # → 7
+# count_code("codexxcode") # → 1
+# count_code("aaacodebbb") # → 4
+# count_code("cozexxcode") # → 7
+# -------------------------
+# Rubyドリル21
+# def parrot_trouble(talking, hour)
+#   if talking && (hour > 20 || hour < 7 )
+#     puts "NG"
+#   else
+#     puts "OK"
+#   end
+# end
+
+# parrot_trouble(true, 6) # → NG
+# parrot_trouble(true, 7) # → OK
+# parrot_trouble(false, 6) # → OK
+# parrot_trouble(false, 7) # → OK
+# -------------------------
+# Rubyドリル22
