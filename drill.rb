@@ -200,15 +200,23 @@
 # missing_char('kitten', 1)
 # -------------------------
 # Rubyドリル18
-def police_trouble(a, b)
-  if (a && b) || (a == false && b == false)
-    puts "True"
-  else
-    puts "False"
-  end
+# def police_trouble(a, b)
+#   if (a && b) || (a == false && b == false)
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# police_trouble(true, true) # => true
+# police_trouble(false, false) # => true
+# police_trouble(true, false) # => false
+# -------------------------
+# Rubyドリル19
+def count_hi(str)
+  puts str.scan("hi").length
 end
 
-police_trouble(true, true) # => true
-police_trouble(false, false) # => true
-police_trouble(true, false) # => false
-
+count_hi('abc hi ho') # → 1
+count_hi('ABChi hi') # → 2
+count_hi('hihi') # → 2
