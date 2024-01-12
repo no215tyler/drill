@@ -260,14 +260,29 @@
 # count_evens([1, 3, 5]) # → 0
 # -------------------------
 # Rubyドリル23
-def array123(nums)
-  if nums.include?(1) && nums.include?(2) && nums.include?(3)
-    puts "True"
+# def array123(nums)
+#   if nums.include?(1) && nums.include?(2) && nums.include?(3)
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# array123([1, 1, 2, 3, 1]) # → True
+# array123([1, 2, 4, ]) # → False
+# array123([1, 1, 2, 1, 4, 3]) # → True
+# -------------------------
+# Rubyドリル24
+def sleep_in(is_weekday, is_vacation)
+  if is_weekday && !is_vacation
+    puts false
   else
-    puts "False"
+    puts true
   end
 end
 
-array123([1, 1, 2, 3, 1]) # → True
-array123([1, 2, 4, ]) # → False
-array123([1, 1, 2, 1, 4, 3]) # → True
+sleep_in(false, false) # → true
+sleep_in(true, false) # → false
+sleep_in(false, true) # → true
+sleep_in(true, true) # → true
+# -------------------------
