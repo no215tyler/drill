@@ -245,3 +245,18 @@
 # parrot_trouble(false, 7) # → OK
 # -------------------------
 # Rubyドリル22
+def count_evens(num_ary)
+  result = 0
+  num_ary.each do |num|
+    if num.even?
+      result += 1
+    end
+  end
+  puts result
+end
+
+count_evens([2, 1, 2, 3, 4]) # → 3
+count_evens([2, 2, 0]) # → 3
+count_evens([1, 3, 5]) # → 0
+# -------------------------
+# Rubyドリル23
