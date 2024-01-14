@@ -316,11 +316,26 @@
 # puts "足し算結果と掛け算結果の合計値は#{add_result + multiple_result}です"
 # ------------------------
 # Rubyドリル26
-def extra_end(str)
-  str = str.slice(-2, 2)
-  puts str * 3
+# def extra_end(str)
+#   str = str.slice(-2, 2)
+#   puts str * 3
+# end
+
+# extra_end('Hello') # → 'lololo'
+# extra_end('ab') # → 'ababab'
+# extra_end('Hi') # → 'HiHiHi'
+# -------------------------
+# Rubyドリル27
+def num(a, b, c)
+  ab = a + b
+  if c <= 3
+    puts ab / c
+  else
+    puts ab * c
+  end
 end
 
-extra_end('Hello') # → 'lololo'
-extra_end('ab') # → 'ababab'
-extra_end('Hi') # → 'HiHiHi'
+num(1,5,3) # → 2
+num(1,5,5) # → 30
+# -------------------------
+# Rubyドリル28
