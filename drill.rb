@@ -326,16 +326,34 @@
 # extra_end('Hi') # → 'HiHiHi'
 # -------------------------
 # Rubyドリル27
-def num(a, b, c)
-  ab = a + b
-  if c <= 3
-    puts ab / c
-  else
-    puts ab * c
-  end
-end
+# def num(a, b, c)
+#   ab = a + b
+#   if c <= 3
+#     puts ab / c
+#   else
+#     puts ab * c
+#   end
+# end
 
-num(1,5,3) # → 2
-num(1,5,5) # → 30
+# num(1,5,3) # → 2
+# num(1,5,5) # → 30
 # -------------------------
 # Rubyドリル28
+def calculate_points(amount, is_birthday)
+  cal_point = 0
+  if amount <= 999
+    cal_point = (amount * 0.03).floor
+  else
+    cal_point = (amount * 0.05).floor
+  end
+
+  if is_birthday
+    cal_point *= 5
+  end
+  puts "ポイントは#{cal_point}点です"
+end
+
+
+calculate_points(500, false) # → ポイントは15点です
+calculate_points(2000, false) # → ポイントは100点です
+calculate_points(3000, true) # → ポイントは750点です
