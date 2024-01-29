@@ -339,21 +339,40 @@
 # num(1,5,5) # → 30
 # -------------------------
 # Rubyドリル28
-def calculate_points(amount, is_birthday)
-  cal_point = 0
-  if amount <= 999
-    cal_point = (amount * 0.03).floor
-  else
-    cal_point = (amount * 0.05).floor
-  end
+# def calculate_points(amount, is_birthday)
+#   cal_point = 0
+#   if amount <= 999
+#     cal_point = (amount * 0.03).floor
+#   else
+#     cal_point = (amount * 0.05).floor
+#   end
 
-  if is_birthday
-    cal_point *= 5
+#   if is_birthday
+#     cal_point *= 5
+#   end
+#   puts "ポイントは#{cal_point}点です"
+# end
+
+
+# calculate_points(500, false) # → ポイントは15点です
+# calculate_points(2000, false) # → ポイントは100点です
+# calculate_points(3000, true) # → ポイントは750点です
+# -------------------------
+# Rubyドリル29
+def fizz_buzz
+  num = 0
+  while num <= 100 
+    if num % 15 == 0
+      puts "FizzBuzz"
+    elsif num % 5 == 0
+      puts "Buzz"
+    elsif num % 3 == 0
+      puts "Fizz"
+    else
+      puts num
+    end
+    num += 1
   end
-  puts "ポイントは#{cal_point}点です"
 end
 
-
-calculate_points(500, false) # → ポイントは15点です
-calculate_points(2000, false) # → ポイントは100点です
-calculate_points(3000, true) # → ポイントは750点です
+fizz_buzz
