@@ -229,3 +229,5 @@ end
 count_code("codexxcode") # → 1
 count_code("aaacodebbb") # → 4
 count_code("cozexxcode") # → 7
+
+# ここに誤ったコードを実装したとする
