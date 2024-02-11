@@ -222,10 +222,27 @@
 # count_hi('hihi') # → 2
 # -------------------------
 # Rubyドリル20
-def count_code(str)
-  puts str.index("code") + 1
+# def count_code(str)
+#   puts str.index("code") + 1
+# end
+
+# count_code("codexxcode") # → 1
+# count_code("aaacodebbb") # → 4
+# count_code("cozexxcode") # → 7
+# -------------------------
+# Rubyドリル31
+def end_other(a, b)
+  a_down_str = a.downcase
+  b_down_str = b.downcase
+  a_match = a.slice(-(b.length)..-1)
+  b_match = b.slice(-(a.length)..-1)
+  if a_down_str == b_match || b_down_str == a_match
+    puts true
+  else
+    puts false
+  end
 end
 
-count_code("codexxcode") # → 1
-count_code("aaacodebbb") # → 4
-count_code("cozexxcode") # → 7
+# 呼び出し例
+end_other('Hiabc', 'abc')
+# -------------------------
