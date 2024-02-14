@@ -231,18 +231,37 @@
 # count_code("cozexxcode") # → 7
 # -------------------------
 # Rubyドリル31
-def end_other(a, b)
-  a_down_str = a.downcase
-  b_down_str = b.downcase
-  a_match = a.slice(-(b.length)..-1)
-  b_match = b.slice(-(a.length)..-1)
-  if a_down_str == b_match || b_down_str == a_match
-    puts true
-  else
-    puts false
+# def end_other(a, b)
+#   a_down_str = a.downcase
+#   b_down_str = b.downcase
+#   a_match = a.slice(-(b.length)..-1)
+#   b_match = b.slice(-(a.length)..-1)
+#   if a_down_str == b_match || b_down_str == a_match
+#     puts true
+#   else
+#     puts false
+#   end
+# end
+
+# # 呼び出し例
+# end_other('Hiabc', 'abc')
+# -------------------------
+# Rubyドリル32
+# エラーが起きた原因
+  # => 「self」メソッドが不要
+
+
+# 正しいソースコード
+class Student
+  def set_name(name)
+    @name = name
+  end
+
+  def introduce
+    puts "私の名前は#{@name}です。"
   end
 end
 
-# 呼び出し例
-end_other('Hiabc', 'abc')
-# -------------------------
+student = Student.new
+student.set_name("山田太郎")
+student.introduce
