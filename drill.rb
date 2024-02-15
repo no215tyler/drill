@@ -267,11 +267,21 @@
 # student.introduce
 # -------------------------
 # Rubyドリル33
-def left2(str)
-  str_buf = str.slice!(0..1)
-  puts str << str_buf
+# def left2(str)
+#   str_buf = str.slice!(0..1)
+#   puts str << str_buf
+# end
+
+# left2("Hello") # → lloHe
+# left2("java") # → vaja
+# left2("Hi") # → Hi
+# -------------------------
+# Rubyドリル34
+def array_count9(nums)
+  result_count = nums.count(9)
+  puts "配列の中には9が#{result_count}個です"
 end
 
-left2("Hello") # → lloHe
-left2("java") # → vaja
-left2("Hi") # → Hi
+array_count9([1, 2, 9]) # → 配列の中には9が1個です
+array_count9([1, 9, 9]) # → 配列の中には9が2個です
+array_count9([1, 9, 9, 3, 9]) # → 配列の中には9が3個です
