@@ -252,16 +252,26 @@
 
 
 # 正しいソースコード
-class Student
-  def set_name(name)
-    @name = name
-  end
+# class Student
+#   def set_name(name)
+#     @name = name
+#   end
 
-  def introduce
-    puts "私の名前は#{@name}です。"
-  end
+#   def introduce
+#     puts "私の名前は#{@name}です。"
+#   end
+# end
+
+# student = Student.new
+# student.set_name("山田太郎")
+# student.introduce
+# -------------------------
+# Rubyドリル33
+def left2(str)
+  str_buf = str.slice!(0..1)
+  puts str << str_buf
 end
 
-student = Student.new
-student.set_name("山田太郎")
-student.introduce
+left2("Hello") # → lloHe
+left2("java") # → vaja
+left2("Hi") # → Hi
