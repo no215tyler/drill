@@ -277,11 +277,26 @@
 # left2("Hi") # → Hi
 # -------------------------
 # Rubyドリル34
-def array_count9(nums)
-  result_count = nums.count(9)
-  puts "配列の中には9が#{result_count}個です"
+# def array_count9(nums)
+#   result_count = nums.count(9)
+#   puts "配列の中には9が#{result_count}個です"
+# end
+
+# array_count9([1, 2, 9]) # → 配列の中には9が1個です
+# array_count9([1, 9, 9]) # → 配列の中には9が2個です
+# array_count9([1, 9, 9, 3, 9]) # → 配列の中には9が3個です
+# -------------------------
+# Rubyドリル35
+def near_ten(num)
+  near_range = [0, 1, 2, 8, 9]
+  remnant = num % 10
+  if near_range.include?(remnant)
+    puts "True"
+  else
+    puts "False"
+  end
 end
 
-array_count9([1, 2, 9]) # → 配列の中には9が1個です
-array_count9([1, 9, 9]) # → 配列の中には9が2個です
-array_count9([1, 9, 9, 3, 9]) # → 配列の中には9が3個です
+near_ten(12) # →True
+near_ten(17) # →False
+near_ten(19) # →True
