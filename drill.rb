@@ -302,17 +302,33 @@
 # near_ten(19) # →True
 # -------------------------
 # Rubyドリル36
-def withdraw(balance, amount)
-  fee = 110 # 手数料
-  if balance <= (amount + fee)
-    puts "残高不足です"
-  else
-    balance = balance - (amount + fee)
-    puts "#{amount}円引出しました。預金残高は#{balance}円です。"
+# def withdraw(balance, amount)
+#   fee = 110 # 手数料
+#   if balance <= (amount + fee)
+#     puts "残高不足です"
+#   else
+#     balance = balance - (amount + fee)
+#     puts "#{amount}円引出しました。預金残高は#{balance}円です。"
+#   end
+# end
+
+# balance = 100000 # 残高
+# puts "いくら引き落としますか？（手数料110円かかります）"
+# money = gets.to_i
+# withdraw(balance, money)
+# -------------------------
+# Rubyドリル37
+def lone_sum(ary)
+  sum_result = 0
+  ary.each do |num|
+    if ary.count(num) < 2
+      sum_result += num
+    end
   end
+  puts sum_result
 end
 
-balance = 100000 # 残高
-puts "いくら引き落としますか？（手数料110円かかります）"
-money = gets.to_i
-withdraw(balance, money)
+# 呼び出し例
+lone_sum([1, 2, 3]) # → 6
+lone_sum([3, 2, 3]) # → 2
+lone_sum([3, 3, 3]) # → 0
