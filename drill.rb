@@ -287,16 +287,32 @@
 # array_count9([1, 9, 9, 3, 9]) # → 配列の中には9が3個です
 # -------------------------
 # Rubyドリル35
-def near_ten(num)
-  near_range = [0, 1, 2, 8, 9]
-  remnant = num % 10
-  if near_range.include?(remnant)
-    puts "True"
+# def near_ten(num)
+#   near_range = [0, 1, 2, 8, 9]
+#   remnant = num % 10
+#   if near_range.include?(remnant)
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# near_ten(12) # →True
+# near_ten(17) # →False
+# near_ten(19) # →True
+# -------------------------
+# Rubyドリル36
+def withdraw(balance, amount)
+  fee = 110 # 手数料
+  if balance <= (amount + fee)
+    puts "残高不足です"
   else
-    puts "False"
+    balance = balance - (amount + fee)
+    puts "#{amount}円引出しました。預金残高は#{balance}円です。"
   end
 end
 
-near_ten(12) # →True
-near_ten(17) # →False
-near_ten(19) # →True
+balance = 100000 # 残高
+puts "いくら引き落としますか？（手数料110円かかります）"
+money = gets.to_i
+withdraw(balance, money)
