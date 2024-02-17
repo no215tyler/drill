@@ -599,12 +599,24 @@
 # close_far(4, 1, 3) # → True
 # -------------------------
 # Rubyドリル42
-def multiplication(num1, num2)
-  puts "#{num1}と#{num2}を掛けた答えは#{num1 * num2}です！"
+# def multiplication(num1, num2)
+#   puts "#{num1}と#{num2}を掛けた答えは#{num1 * num2}です！"
+# end
+
+# puts "最初の数字を入力してください"
+# num1 = gets.chomp.to_i
+# puts "2番目の数字を入力してください"
+# num2 = gets.chomp.to_i
+# multiplication(num1, num2)
+# -------------------------
+# Rubyドリル43
+class Book
+  attr_reader :title, :price
+  def initialize(title, price)
+    @title = title
+    @price = price
+  end
 end
 
-puts "最初の数字を入力してください"
-num1 = gets.chomp.to_i
-puts "2番目の数字を入力してください"
-num2 = gets.chomp.to_i
-multiplication(num1, num2)
+book = Book.new('プロになるためのWeb技術入門', '2,280(税抜)')
+puts "#{book.title}の値段は#{book.price}円です。"
