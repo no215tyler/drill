@@ -580,20 +580,31 @@
 # xyz_there('a.zbycx') # → False
 # -------------------------
 # Rubyドリル41
-def close_far(a,b,c)
-  x = (a - b).abs
-  y = (a - c).abs
-  z = (b - c).abs
+# def close_far(a,b,c)
+#   x = (a - b).abs
+#   y = (a - c).abs
+#   z = (b - c).abs
 
-  if (x == 1 && z >= 2) # aとbの差が1かつbとcとの差が2以上の場合
-    puts "True"
-  elsif (y == 1 && z >= 2) # aとcの差が1かつbとcとの差が2以上の場合
-    puts "True"
-  else
-    puts "False"
-  end
+#   if (x == 1 && z >= 2) # aとbの差が1かつbとcとの差が2以上の場合
+#     puts "True"
+#   elsif (y == 1 && z >= 2) # aとcの差が1かつbとcとの差が2以上の場合
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# close_far(1, 2, 10) # → True
+# close_far(1, 2, 3) # → False
+# close_far(4, 1, 3) # → True
+# -------------------------
+# Rubyドリル42
+def multiplication(num1, num2)
+  puts "#{num1}と#{num2}を掛けた答えは#{num1 * num2}です！"
 end
 
-close_far(1, 2, 10) # → True
-close_far(1, 2, 3) # → False
-close_far(4, 1, 3) # → True
+puts "最初の数字を入力してください"
+num1 = gets.chomp.to_i
+puts "2番目の数字を入力してください"
+num2 = gets.chomp.to_i
+multiplication(num1, num2)
