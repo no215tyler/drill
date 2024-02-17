@@ -222,10 +222,176 @@
 # count_hi('hihi') # → 2
 # -------------------------
 # Rubyドリル20
-def count_code(str)
-  puts str.index("code") + 1
+# def count_code(str)
+#   puts str.index("code") + 1
+# end
+
+# count_code("codexxcode") # → 1
+# count_code("aaacodebbb") # → 4
+# count_code("cozexxcode") # → 7
+# -------------------------
+# Rubyドリル21
+# def parrot_trouble(talking, hour)
+#   if talking && (hour > 20 || hour < 7 )
+#     puts "NG"
+#   else
+#     puts "OK"
+#   end
+# end
+
+# parrot_trouble(true, 6) # → NG
+# parrot_trouble(true, 7) # → OK
+# parrot_trouble(false, 6) # → OK
+# parrot_trouble(false, 7) # → OK
+# -------------------------
+# Rubyドリル22
+# def count_evens(num_ary)
+#   result = 0
+#   num_ary.each do |num|
+#     if num.even?
+#       result += 1
+#     end
+#   end
+#   puts result
+# end
+
+# count_evens([2, 1, 2, 3, 4]) # → 3
+# count_evens([2, 2, 0]) # → 3
+# count_evens([1, 3, 5]) # → 0
+# -------------------------
+# Rubyドリル23
+# def array123(nums)
+#   if nums.include?(1) && nums.include?(2) && nums.include?(3)
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# array123([1, 1, 2, 3, 1]) # → True
+# array123([1, 2, 4, ]) # → False
+# array123([1, 1, 2, 1, 4, 3]) # → True
+# -------------------------
+# Rubyドリル24
+# def sleep_in(is_weekday, is_vacation)
+#   if is_weekday && !is_vacation
+#     puts false
+#   else
+#     puts true
+#   end
+# end
+
+# sleep_in(false, false) # → true
+# sleep_in(true, false) # → false
+# sleep_in(false, true) # → true
+# sleep_in(true, true) # → true
+# -------------------------
+# Rubyドリル25
+# def addition(a, b)
+#   # 10の位と1の位の数字に対して、足し算を行う
+#   a + b
+# end
+
+# def multiplication(a,b)
+#   # 10の位と1の位の数字に対して、掛け算を行う
+#   a * b
+# end
+
+# def slice_num(num)
+#   # 10の位の計算
+#   ten = (num / 10) % 10
+#   # 1の位の計算
+#   one = num % 10
+#   return ten, one
+# end
+
+# puts "二桁の整数を入力してください"
+# input = gets.to_i
+
+# X, Y = slice_num(input)
+# #  additionメソッドにX,Yを引数として渡し、処理結果を変数add_resultに代入する。
+# add_result = addition(X, Y)
+# #  multiplicationメソッドにX,Yを引数として渡し、処理結果を変数multiple_resultに代入する。
+# multiple_result = multiplication(X, Y)
+# puts "足し算結果と掛け算結果の合計値は#{add_result + multiple_result}です"
+# ------------------------
+# Rubyドリル26
+# def extra_end(str)
+#   str = str.slice(-2, 2)
+#   puts str * 3
+# end
+
+# extra_end('Hello') # → 'lololo'
+# extra_end('ab') # → 'ababab'
+# extra_end('Hi') # → 'HiHiHi'
+# -------------------------
+# Rubyドリル27
+# def num(a, b, c)
+#   ab = a + b
+#   if c <= 3
+#     puts ab / c
+#   else
+#     puts ab * c
+#   end
+# end
+
+# num(1,5,3) # → 2
+# num(1,5,5) # → 30
+# -------------------------
+# Rubyドリル28
+# def calculate_points(amount, is_birthday)
+#   cal_point = 0
+#   if amount <= 999
+#     cal_point = (amount * 0.03).floor
+#   else
+#     cal_point = (amount * 0.05).floor
+#   end
+
+#   if is_birthday
+#     cal_point *= 5
+#   end
+#   puts "ポイントは#{cal_point}点です"
+# end
+
+
+# calculate_points(500, false) # → ポイントは15点です
+# calculate_points(2000, false) # → ポイントは100点です
+# calculate_points(3000, true) # → ポイントは750点です
+# -------------------------
+# Rubyドリル29
+# def fizz_buzz
+#   num = 0
+#   while num <= 100 
+#     if num % 15 == 0
+#       puts "FizzBuzz"
+#     elsif num % 5 == 0
+#       puts "Buzz"
+#     elsif num % 3 == 0
+#       puts "Fizz"
+#     else
+#       puts num
+#     end
+#     num += 1
+#   end
+# end
+
+# fizz_buzz
+# -------------------------
+# Rubyドリル30
+def fizzbuzz(max_num)
+  (1..max_num).each do |num|
+    if num % 15 == 0
+      puts "FizzBuzz"
+    elsif num % 5 == 0
+      puts "Buzz"
+    elsif num % 3 == 0
+      puts "Fizz"
+    else
+      puts num
+    end
+  end
 end
 
-count_code("codexxcode") # → 1
-count_code("aaacodebbb") # → 4
-count_code("cozexxcode") # → 7
+puts 'いくつまで数えますか？'
+num = gets.to_i
+fizzbuzz(num)
