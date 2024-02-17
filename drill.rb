@@ -373,28 +373,48 @@
 # binary_search(array, 13)
 # -------------------------
 # Rubyドリル39
-def near_ten(num)
-  str_num = num.to_s
-  sum = 0
-  if /\A\d{3}\z/.match?(str_num) # 整数3桁かどうかを判定
-    3.times do
-      sum += str_num.slice!(0).to_i
+# def near_ten(num)
+#   str_num = num.to_s
+#   sum = 0
+#   if /\A\d{3}\z/.match?(str_num) # 整数3桁かどうかを判定
+#     3.times do
+#       sum += str_num.slice!(0).to_i
+#     end
+#   else
+#     return puts "3桁で入力してください"
+#   end
+
+#   if sum % 10 >= 8 || sum % 10 <= 2
+#     puts "True"
+#   elsif sum % 10 >= 5
+#     puts "10の倍数との差は#{10 - (sum % 10)}です"
+#   else
+#     puts "10の倍数との差は#{sum % 10}です"
+#   end
+# end
+
+# near_ten(117) # →True
+# near_ten(123) # →10の倍数との差は4です
+# near_ten(111) # →10の倍数との差は3です
+# near_ten(101) # →True
+# near_ten(9999) # →3桁で入力してください
+# -------------------------
+# Rubyドリル40
+def xyz_there(str)
+  case str.include?('xyz')
+  when true
+    if str.include?('.xyz')
+      puts "False"
+    else
+      puts "True"
     end
   else
-    return puts "3桁で入力してください"
-  end
-
-  if sum % 10 >= 8 || sum % 10 <= 2
-    puts "True"
-  elsif sum % 10 >= 5
-    puts "10の倍数との差は#{10 - (sum % 10)}です"
-  else
-    puts "10の倍数との差は#{sum % 10}です"
+    puts "False"
   end
 end
 
-near_ten(117) # →True
-near_ten(123) # →10の倍数との差は4です
-near_ten(111) # →10の倍数との差は3です
-near_ten(101) # →True
-near_ten(9999) # →3桁で入力してください
+xyz_there('abcxyz') # → True
+xyz_there('abc.xyz') # → False
+xyz_there('xyz.abc') # → True
+xyz_there('azbycx') # → False
+xyz_there('a.zbycx') # → False
