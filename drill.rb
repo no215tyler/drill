@@ -334,40 +334,67 @@
 # lone_sum([3, 3, 3]) # → 0
 # -------------------------
 # Rubyドリル38
-def binary_search(ary, target_num)
-  number_of_elements = ary.length
-  center = number_of_elements / 2
-  index = center
-  null_flg = false
-  if target_num >= ary[index - 1]
-    up_direction(ary, index, number_of_elements, target_num)
-  elsif target_num < ary[index - 1]
-    down_direction(ary, index, target_num)
-  end
-end
+# def binary_search(ary, target_num)
+#   number_of_elements = ary.length
+#   center = number_of_elements / 2
+#   index = center
+#   null_flg = false
+#   if target_num >= ary[index - 1]
+#     up_direction(ary, index, number_of_elements, target_num)
+#   elsif target_num < ary[index - 1]
+#     down_direction(ary, index, target_num)
+#   end
+# end
 
-def up_direction(ary, index, number_of_elements, target_num)
-  while index < number_of_elements
-    if ary[index - 1] == target_num
-      return puts "#{target_num}は配列の#{index}番目に存在します"
-    else
-      index += 1
+# def up_direction(ary, index, number_of_elements, target_num)
+#   while index < number_of_elements
+#     if ary[index - 1] == target_num
+#       return puts "#{target_num}は配列の#{index}番目に存在します"
+#     else
+#       index += 1
+#     end
+#   end
+#   puts "#{target_num}は配列内に存在しません"
+# end
+
+# def down_direction(ary, index, target_num)
+#   while index > 0
+#     if ary[index - 1] == target_num
+#       return puts "#{target_num}は配列の#{index}番目に存在します"
+#     else
+#       index -= 1
+#     end
+#   end
+#   puts "#{target_num}は配列内に存在しません"
+# end
+
+
+# array = [1,3,5,6,9,10,13,20,26,31]
+# binary_search(array, 13)
+# -------------------------
+# Rubyドリル39
+def near_ten(num)
+  str_num = num.to_s
+  sum = 0
+  if /\A\d{3}\z/.match?(str_num) # 整数3桁かどうかを判定
+    3.times do
+      sum += str_num.slice!(0).to_i
     end
+  else
+    return puts "3桁で入力してください"
   end
-  puts "#{target_num}は配列内に存在しません"
+
+  if sum % 10 >= 8 || sum % 10 <= 2
+    puts "True"
+  elsif sum % 10 >= 5
+    puts "10の倍数との差は#{10 - (sum % 10)}です"
+  else
+    puts "10の倍数との差は#{sum % 10}です"
+  end
 end
 
-def down_direction(ary, index, target_num)
-  while index > 0
-    if ary[index - 1] == target_num
-      return puts "#{target_num}は配列の#{index}番目に存在します"
-    else
-      index -= 1
-    end
-  end
-  puts "#{target_num}は配列内に存在しません"
-end
-
-
-array = [1,3,5,6,9,10,13,20,26,31]
-binary_search(array, 13)
+near_ten(117) # →True
+near_ten(123) # →10の倍数との差は4です
+near_ten(111) # →10の倍数との差は3です
+near_ten(101) # →True
+near_ten(9999) # →3桁で入力してください
