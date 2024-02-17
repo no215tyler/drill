@@ -318,17 +318,56 @@
 # withdraw(balance, money)
 # -------------------------
 # Rubyドリル37
-def lone_sum(ary)
-  sum_result = 0
-  ary.each do |num|
-    if ary.count(num) < 2
-      sum_result += num
-    end
+# def lone_sum(ary)
+#   sum_result = 0
+#   ary.each do |num|
+#     if ary.count(num) < 2
+#       sum_result += num
+#     end
+#   end
+#   puts sum_result
+# end
+
+# # 呼び出し例
+# lone_sum([1, 2, 3]) # → 6
+# lone_sum([3, 2, 3]) # → 2
+# lone_sum([3, 3, 3]) # → 0
+# -------------------------
+# Rubyドリル38
+def binary_search(ary, target_num)
+  number_of_elements = ary.length
+  center = number_of_elements / 2
+  index = center
+  null_flg = false
+  if target_num >= ary[index - 1]
+    up_direction(ary, index, number_of_elements, target_num)
+  elsif target_num < ary[index - 1]
+    down_direction(ary, index, target_num)
   end
-  puts sum_result
 end
 
-# 呼び出し例
-lone_sum([1, 2, 3]) # → 6
-lone_sum([3, 2, 3]) # → 2
-lone_sum([3, 3, 3]) # → 0
+def up_direction(ary, index, number_of_elements, target_num)
+  while index < number_of_elements
+    if ary[index - 1] == target_num
+      return puts "#{target_num}は配列の#{index}番目に存在します"
+    else
+      index += 1
+    end
+  end
+  puts "#{target_num}は配列内に存在しません"
+end
+
+def down_direction(ary, index, target_num)
+  while index > 0
+    if ary[index - 1] == target_num
+      return puts "#{target_num}は配列の#{index}番目に存在します"
+    else
+      index -= 1
+    end
+  end
+  puts "#{target_num}は配列内に存在しません"
+end
+
+
+array = [1,3,5,6,9,10,13,20,26,31]
+binary_search(array, 13)
