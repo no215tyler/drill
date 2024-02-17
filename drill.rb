@@ -267,7 +267,6 @@
 #     puts "False"
 #   end
 # end
-
 # array123([1, 1, 2, 3, 1]) # → True
 # array123([1, 2, 4, ]) # → False
 # array123([1, 1, 2, 1, 4, 3]) # → True
@@ -378,20 +377,204 @@
 # fizz_buzz
 # -------------------------
 # Rubyドリル30
-def fizzbuzz(max_num)
-  (1..max_num).each do |num|
-    if num % 15 == 0
-      puts "FizzBuzz"
-    elsif num % 5 == 0
-      puts "Buzz"
-    elsif num % 3 == 0
-      puts "Fizz"
+# def fizzbuzz(max_num)
+#   (1..max_num).each do |num|
+#     if num % 15 == 0
+#       puts "FizzBuzz"
+#     elsif num % 5 == 0
+#       puts "Buzz"
+#     elsif num % 3 == 0
+#       puts "Fizz"
+#     else
+#       puts num
+#     end
+#   end
+# end
+
+# puts 'いくつまで数えますか？'
+# num = gets.to_i
+# fizzbuzz(num)
+# -------------------------
+# Rubyドリル31
+# def end_other(a, b)
+#   a_down_str = a.downcase
+#   b_down_str = b.downcase
+#   a_match = a.slice(-(b.length)..-1)
+#   b_match = b.slice(-(a.length)..-1)
+#   if a_down_str == b_match || b_down_str == a_match
+#     puts true
+#   else
+#     puts false
+#   end
+# end
+
+# # 呼び出し例
+# end_other('Hiabc', 'abc')
+# -------------------------
+# Rubyドリル32
+# エラーが起きた原因
+  # => 「self」メソッドが不要
+
+
+# 正しいソースコード
+# class Student
+#   def set_name(name)
+#     @name = name
+#   end
+
+#   def introduce
+#     puts "私の名前は#{@name}です。"
+#   end
+# end
+
+# student = Student.new
+# student.set_name("山田太郎")
+# student.introduce
+# -------------------------
+# Rubyドリル33
+# def left2(str)
+#   str_buf = str.slice!(0..1)
+#   puts str << str_buf
+# end
+
+# left2("Hello") # → lloHe
+# left2("java") # → vaja
+# left2("Hi") # → Hi
+# -------------------------
+# Rubyドリル34
+# def array_count9(nums)
+#   result_count = nums.count(9)
+#   puts "配列の中には9が#{result_count}個です"
+# end
+
+# array_count9([1, 2, 9]) # → 配列の中には9が1個です
+# array_count9([1, 9, 9]) # → 配列の中には9が2個です
+# array_count9([1, 9, 9, 3, 9]) # → 配列の中には9が3個です
+# -------------------------
+# Rubyドリル35
+# def near_ten(num)
+#   near_range = [0, 1, 2, 8, 9]
+#   remnant = num % 10
+#   if near_range.include?(remnant)
+
+# near_ten(12) # →True
+# near_ten(17) # →False
+# near_ten(19) # →True
+# -------------------------
+# Rubyドリル36
+# def withdraw(balance, amount)
+#   fee = 110 # 手数料
+#   if balance <= (amount + fee)
+#     puts "残高不足です"
+#   else
+#     balance = balance - (amount + fee)
+#     puts "#{amount}円引出しました。預金残高は#{balance}円です。"
+#   end
+# end
+
+# balance = 100000 # 残高
+# puts "いくら引き落としますか？（手数料110円かかります）"
+# money = gets.to_i
+# withdraw(balance, money)
+# -------------------------
+# Rubyドリル37
+# def lone_sum(ary)
+#   sum_result = 0
+#   ary.each do |num|
+#     if ary.count(num) < 2
+#       sum_result += num
+#     end
+#   end
+#   puts sum_result
+# end
+
+# # 呼び出し例
+# lone_sum([1, 2, 3]) # → 6
+# lone_sum([3, 2, 3]) # → 2
+# lone_sum([3, 3, 3]) # → 0
+# -------------------------
+# Rubyドリル38
+# def binary_search(ary, target_num)
+#   number_of_elements = ary.length
+#   center = number_of_elements / 2
+#   index = center
+#   null_flg = false
+#   if target_num >= ary[index - 1]
+#     up_direction(ary, index, number_of_elements, target_num)
+#   elsif target_num < ary[index - 1]
+#     down_direction(ary, index, target_num)
+#   end
+# end
+
+# def up_direction(ary, index, number_of_elements, target_num)
+#   while index < number_of_elements
+#     if ary[index - 1] == target_num
+#       return puts "#{target_num}は配列の#{index}番目に存在します"
+#     else
+#       index += 1
+#     end
+#   end
+#   puts "#{target_num}は配列内に存在しません"
+# end
+
+# def down_direction(ary, index, target_num)
+#   while index > 0
+#     if ary[index - 1] == target_num
+#       return puts "#{target_num}は配列の#{index}番目に存在します"
+#     else
+#       index -= 1
+#     end
+#   end
+#   puts "#{target_num}は配列内に存在しません"
+# end
+
+
+# array = [1,3,5,6,9,10,13,20,26,31]
+# binary_search(array, 13)
+# -------------------------
+# Rubyドリル39
+# def near_ten(num)
+#   str_num = num.to_s
+#   sum = 0
+#   if /\A\d{3}\z/.match?(str_num) # 整数3桁かどうかを判定
+#     3.times do
+#       sum += str_num.slice!(0).to_i
+#     end
+#   else
+#     return puts "3桁で入力してください"
+#   end
+
+#   if sum % 10 >= 8 || sum % 10 <= 2
+#     puts "True"
+#   elsif sum % 10 >= 5
+#     puts "10の倍数との差は#{10 - (sum % 10)}です"
+#   else
+#     puts "10の倍数との差は#{sum % 10}です"
+#   end
+# end
+
+# near_ten(117) # →True
+# near_ten(123) # →10の倍数との差は4です
+# near_ten(111) # →10の倍数との差は3です
+# near_ten(101) # →True
+# near_ten(9999) # →3桁で入力してください
+# -------------------------
+# Rubyドリル40
+def xyz_there(str)
+  case str.include?('xyz')
+  when true
+    if str.include?('.xyz')
+      puts "False"
     else
-      puts num
+      puts "True"
     end
+  else
+    puts "False"
   end
 end
 
-puts 'いくつまで数えますか？'
-num = gets.to_i
-fizzbuzz(num)
+xyz_there('abcxyz') # → True
+xyz_there('abc.xyz') # → False
+xyz_there('xyz.abc') # → True
+xyz_there('azbycx') # → False
+xyz_there('a.zbycx') # → False
