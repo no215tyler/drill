@@ -560,21 +560,40 @@
 # near_ten(9999) # →3桁で入力してください
 # -------------------------
 # Rubyドリル40
-def xyz_there(str)
-  case str.include?('xyz')
-  when true
-    if str.include?('.xyz')
-      puts "False"
-    else
-      puts "True"
-    end
+# def xyz_there(str)
+#   case str.include?('xyz')
+#   when true
+#     if str.include?('.xyz')
+#       puts "False"
+#     else
+#       puts "True"
+#     end
+#   else
+#     puts "False"
+#   end
+# end
+
+# xyz_there('abcxyz') # → True
+# xyz_there('abc.xyz') # → False
+# xyz_there('xyz.abc') # → True
+# xyz_there('azbycx') # → False
+# xyz_there('a.zbycx') # → False
+# -------------------------
+# Rubyドリル41
+def close_far(a,b,c)
+  x = (a - b).abs
+  y = (a - c).abs
+  z = (b - c).abs
+
+  if (x == 1 && z >= 2) # aとbの差が1かつbとcとの差が2以上の場合
+    puts "True"
+  elsif (y == 1 && z >= 2) # aとcの差が1かつbとcとの差が2以上の場合
+    puts "True"
   else
     puts "False"
   end
 end
 
-xyz_there('abcxyz') # → True
-xyz_there('abc.xyz') # → False
-xyz_there('xyz.abc') # → True
-xyz_there('azbycx') # → False
-xyz_there('a.zbycx') # → False
+close_far(1, 2, 10) # → True
+close_far(1, 2, 3) # → False
+close_far(4, 1, 3) # → True
