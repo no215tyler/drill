@@ -621,7 +621,17 @@
 # book = Book.new('プロになるためのWeb技術入門', '2,280(税抜)')
 # puts "#{book.title}の値段は#{book.price}円です。"
 # -------------------------
-# Rubyドリル44
-10.times do |i|
-  puts "#{i + 1}回目の繰り返し"
+# # Rubyドリル44
+# 10.times do |i|
+#   puts "#{i + 1}回目の繰り返し"
+# end
+# -------------------------
+# Rubyドリル45
+# if文ではなくcase文で作成してみる
+num = rand(10)
+case
+when num >= 5
+  puts "#{num}は4より大きい！"
+when num <= 4
+  puts "#{num}は5より小さい！"
 end
