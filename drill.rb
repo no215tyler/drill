@@ -648,12 +648,29 @@
 # todays_fortune(birthday)
 # -------------------------
 # Rubyドリル47
-movie = {"title" => "ハリーポッター", "genre" => "ファンタジー", "year" => "2001年"}
-puts "以下から一つを選んで入力してください"
-puts "title\ngenre\nyear"
-key = gets.chomp
-if /(title|genre|year)/.match?(key)
-  puts movie[key]
-else
-  puts "選択肢の中から入力してください。"
+# movie = {"title" => "ハリーポッター", "genre" => "ファンタジー", "year" => "2001年"}
+# puts "以下から一つを選んで入力してください"
+# puts "title\ngenre\nyear"
+# key = gets.chomp
+# if /(title|genre|year)/.match?(key)
+#   puts movie[key]
+# else
+#   puts "選択肢の中から入力してください。"
+# end
+# -------------------------
+# Rubyドリル48
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
 end
+
+class Student < Person
+  def introduce
+    puts "私の名前は#{@name}です。#{@age}歳です。"
+  end
+end
+
+student = Student.new('Jhon', 28)
+student.introduce
