@@ -610,13 +610,18 @@
 # multiplication(num1, num2)
 # -------------------------
 # Rubyドリル43
-class Book
-  attr_reader :title, :price
-  def initialize(title, price)
-    @title = title
-    @price = price
-  end
-end
+# class Book
+#   attr_reader :title, :price
+#   def initialize(title, price)
+#     @title = title
+#     @price = price
+#   end
+# end
 
-book = Book.new('プロになるためのWeb技術入門', '2,280(税抜)')
-puts "#{book.title}の値段は#{book.price}円です。"
+# book = Book.new('プロになるためのWeb技術入門', '2,280(税抜)')
+# puts "#{book.title}の値段は#{book.price}円です。"
+# -------------------------
+# Rubyドリル44
+10.times do |i|
+  puts "#{i + 1}回目の繰り返し"
+end
