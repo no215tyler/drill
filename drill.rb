@@ -637,12 +637,23 @@
 # end
 # -------------------------
 # Rubyドリル46
-def todays_fortune(birthday)
-  divination_array = ["凶", "中吉", "吉", "大吉"].shuffle
-  fortune_index = (birthday * rand(10)) % 4
-  puts "今日のあなたの運勢は#{divination_array[fortune_index]}です！"
-end
+# def todays_fortune(birthday)
+#   divination_array = ["凶", "中吉", "吉", "大吉"].shuffle
+#   fortune_index = (birthday * rand(10)) % 4
+#   puts "今日のあなたの運勢は#{divination_array[fortune_index]}です！"
+# end
 
-puts "誕生日を入力してください"
-birthday = gets.to_i
-todays_fortune(birthday)
+# puts "誕生日を入力してください"
+# birthday = gets.to_i
+# todays_fortune(birthday)
+# -------------------------
+# Rubyドリル47
+movie = {"title" => "ハリーポッター", "genre" => "ファンタジー", "year" => "2001年"}
+puts "以下から一つを選んで入力してください"
+puts "title\ngenre\nyear"
+key = gets.chomp
+if /(title|genre|year)/.match?(key)
+  puts movie[key]
+else
+  puts "選択肢の中から入力してください。"
+end
