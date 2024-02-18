@@ -659,18 +659,31 @@
 # end
 # -------------------------
 # Rubyドリル48
-class Person
-  def initialize(name, age)
-    @name = name
-    @age = age
+# class Person
+#   def initialize(name, age)
+#     @name = name
+#     @age = age
+#   end
+# end
+
+# class Student < Person
+#   def introduce
+#     puts "私の名前は#{@name}です。#{@age}歳です。"
+#   end
+# end
+
+# student = Student.new('Jhon', 28)
+# student.introduce
+# -------------------------
+# Rubyドリル49
+def include_cat_and_dog?(str)
+  if str.include?('cat') && str.include?('dog')
+    puts 'True'
+  else
+    puts 'False'
   end
 end
 
-class Student < Person
-  def introduce
-    puts "私の名前は#{@name}です。#{@age}歳です。"
-  end
-end
-
-student = Student.new('Jhon', 28)
-student.introduce
+# 呼び出し例
+include_cat_and_dog?("catdog")
+include_cat_and_dog?('flogdog')
