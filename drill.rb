@@ -628,10 +628,21 @@
 # -------------------------
 # Rubyドリル45
 # if文ではなくcase文で作成してみる
-num = rand(10)
-case
-when num >= 5
-  puts "#{num}は4より大きい！"
-when num <= 4
-  puts "#{num}は5より小さい！"
+# num = rand(10)
+# case
+# when num >= 5
+#   puts "#{num}は4より大きい！"
+# when num <= 4
+#   puts "#{num}は5より小さい！"
+# end
+# -------------------------
+# Rubyドリル46
+def todays_fortune(birthday)
+  divination_array = ["凶", "中吉", "吉", "大吉"].shuffle
+  fortune_index = (birthday * rand(10)) % 4
+  puts "今日のあなたの運勢は#{divination_array[fortune_index]}です！"
 end
+
+puts "誕生日を入力してください"
+birthday = gets.to_i
+todays_fortune(birthday)
