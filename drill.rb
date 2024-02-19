@@ -560,21 +560,146 @@
 # near_ten(9999) # →3桁で入力してください
 # -------------------------
 # Rubyドリル40
-def xyz_there(str)
-  case str.include?('xyz')
-  when true
-    if str.include?('.xyz')
-      puts "False"
-    else
-      puts "True"
+# def xyz_there(str)
+#   case str.include?('xyz')
+#   when true
+#     if str.include?('.xyz')
+#       puts "False"
+#     else
+#       puts "True"
+#     end
+#   else
+#     puts "False"
+#   end
+# end
+
+# xyz_there('abcxyz') # → True
+# xyz_there('abc.xyz') # → False
+# xyz_there('xyz.abc') # → True
+# xyz_there('azbycx') # → False
+# xyz_there('a.zbycx') # → False
+# -------------------------
+# Rubyドリル41
+# def close_far(a,b,c)
+#   x = (a - b).abs
+#   y = (a - c).abs
+#   z = (b - c).abs
+
+#   if (x == 1 && z >= 2) # aとbの差が1かつbとcとの差が2以上の場合
+#     puts "True"
+#   elsif (y == 1 && z >= 2) # aとcの差が1かつbとcとの差が2以上の場合
+#     puts "True"
+#   else
+#     puts "False"
+#   end
+# end
+
+# close_far(1, 2, 10) # → True
+# close_far(1, 2, 3) # → False
+# close_far(4, 1, 3) # → True
+# -------------------------
+# Rubyドリル42
+# def multiplication(num1, num2)
+#   puts "#{num1}と#{num2}を掛けた答えは#{num1 * num2}です！"
+# end
+
+# puts "最初の数字を入力してください"
+# num1 = gets.chomp.to_i
+# puts "2番目の数字を入力してください"
+# num2 = gets.chomp.to_i
+# multiplication(num1, num2)
+# -------------------------
+# Rubyドリル43
+# class Book
+#   attr_reader :title, :price
+#   def initialize(title, price)
+#     @title = title
+#     @price = price
+#   end
+# end
+
+# book = Book.new('プロになるためのWeb技術入門', '2,280(税抜)')
+# puts "#{book.title}の値段は#{book.price}円です。"
+# -------------------------
+# # Rubyドリル44
+# 10.times do |i|
+#   puts "#{i + 1}回目の繰り返し"
+# end
+# -------------------------
+# Rubyドリル45
+# if文ではなくcase文で作成してみる
+# num = rand(10)
+# case
+# when num >= 5
+#   puts "#{num}は4より大きい！"
+# when num <= 4
+#   puts "#{num}は5より小さい！"
+# end
+# -------------------------
+# Rubyドリル46
+# def todays_fortune(birthday)
+#   divination_array = ["凶", "中吉", "吉", "大吉"].shuffle
+#   fortune_index = (birthday * rand(10)) % 4
+#   puts "今日のあなたの運勢は#{divination_array[fortune_index]}です！"
+# end
+
+# puts "誕生日を入力してください"
+# birthday = gets.to_i
+# todays_fortune(birthday)
+# -------------------------
+# Rubyドリル47
+# movie = {"title" => "ハリーポッター", "genre" => "ファンタジー", "year" => "2001年"}
+# puts "以下から一つを選んで入力してください"
+# puts "title\ngenre\nyear"
+# key = gets.chomp
+# if /(title|genre|year)/.match?(key)
+#   puts movie[key]
+# else
+#   puts "選択肢の中から入力してください。"
+# end
+# -------------------------
+# Rubyドリル48
+# class Person
+#   def initialize(name, age)
+#     @name = name
+#     @age = age
+#   end
+# end
+
+# class Student < Person
+#   def introduce
+#     puts "私の名前は#{@name}です。#{@age}歳です。"
+#   end
+# end
+
+# student = Student.new('Jhon', 28)
+# student.introduce
+# -------------------------
+# Rubyドリル49
+# def include_cat_and_dog?(str)
+#   if str.include?('cat') && str.include?('dog')
+#     puts 'True'
+#   else
+#     puts 'False'
+#   end
+# end
+
+# # 呼び出し例
+# include_cat_and_dog?("catdog")
+# include_cat_and_dog?('flogdog')
+# -------------------------
+# Rubyドリル50
+while true
+  puts "[0]:カロリーを表示する\n[1]:終了する"
+  choices = gets.chomp
+  if /\A[01]\z/.match?(choices)
+    case choices
+    when '0'
+      puts '500kcal'
+    when '1'
+      exit
     end
   else
-    puts "False"
+    puts "[0]か[1]を選択してください"
   end
 end
-
-xyz_there('abcxyz') # → True
-xyz_there('abc.xyz') # → False
-xyz_there('xyz.abc') # → True
-xyz_there('azbycx') # → False
-xyz_there('a.zbycx') # → False
