@@ -704,7 +704,7 @@
 #   end
 # end
 # -------------------------
-# Rubyドリル51
+# Rubyドリル51 & 52
 def register_book
   # 本の著者、タイトル、価格をユーザーに入力させ、保存する
   puts '著者を入力してください'
@@ -712,16 +712,26 @@ def register_book
   puts 'タイトルを入力してください'
   title = gets.chomp
   puts '価格を入力してください'
-  price = gets.chomp
+  price = gets.to_i
   books = { author: author, title: title, price: price }
 end
 
 def show_books(books)
+  calculate_average_price(books)
   puts "見たい番号を入力してください"
   books.each_with_index do |book, index|
     puts "【#{index + 1}】#{book[:title]}"
   end
   show_detail(books[gets.to_i - 1])
+end
+
+def calculate_average_price(books)
+  total_price = 0
+  books.each do |book|
+    total_price += book[:price]
+  end
+  average_price = total_price / books.length
+  puts "平均価格:#{average_price}円"
 end
 
 def show_detail(book)
