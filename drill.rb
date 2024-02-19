@@ -676,14 +676,30 @@
 # student.introduce
 # -------------------------
 # Rubyドリル49
-def include_cat_and_dog?(str)
-  if str.include?('cat') && str.include?('dog')
-    puts 'True'
+# def include_cat_and_dog?(str)
+#   if str.include?('cat') && str.include?('dog')
+#     puts 'True'
+#   else
+#     puts 'False'
+#   end
+# end
+
+# # 呼び出し例
+# include_cat_and_dog?("catdog")
+# include_cat_and_dog?('flogdog')
+# -------------------------
+# Rubyドリル50
+while true
+  puts "[0]:カロリーを表示する\n[1]:終了する"
+  choices = gets.chomp
+  if /\A[01]\z/.match?(choices)
+    case choices
+    when '0'
+      puts '500kcal'
+    when '1'
+      exit
+    end
   else
-    puts 'False'
+    puts "[0]か[1]を選択してください"
   end
 end
-
-# 呼び出し例
-include_cat_and_dog?("catdog")
-include_cat_and_dog?('flogdog')
