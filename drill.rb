@@ -779,7 +779,7 @@
 # days = get_days(year, month)
 # puts "#{year}年#{month}月は#{days}日間あります"
 # -------------------------
-# Rubyドリル54 & Rubyドリル55
+# Rubyドリル54 & Rubyドリル55 & Rubyドリル56
 def register_data
   personal_data = {}
   puts '名前を入力してください'
@@ -790,6 +790,7 @@ def register_data
     personal_data[:height] = gets.to_f
   puts '体重を入力してください（単位:kg）'
     personal_data[:weight] = gets.to_f
+    personal_data[:bmi] = calculate_bmi(personal_data[:weight], personal_data[:height])
   return personal_data
 end
 
@@ -805,10 +806,15 @@ def show_data(data)
     puts "【年齢】#{data[choose_num - 1][:age]}歳"
     puts "【身長】#{data[choose_num - 1][:height]}m"
     puts "【体重】#{data[choose_num - 1][:weight]}kg"
+    puts "【BMI】#{data[choose_num - 1][:bmi]}"
   else
     puts '無効な値です'
     show_data(data)
   end
+end
+
+def calculate_bmi(weight, height)
+  return (weight / height / height).floor(2)
 end
 
 data = []
