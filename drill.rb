@@ -705,56 +705,76 @@
 # end
 # -------------------------
 # Rubyドリル51 & 52
-def register_book
-  # 本の著者、タイトル、価格をユーザーに入力させ、保存する
-  puts '著者を入力してください'
-  author = gets.chomp
-  puts 'タイトルを入力してください'
-  title = gets.chomp
-  puts '価格を入力してください'
-  price = gets.to_i
-  books = { author: author, title: title, price: price }
-end
+# def register_book
+#   # 本の著者、タイトル、価格をユーザーに入力させ、保存する
+#   puts '著者を入力してください'
+#   author = gets.chomp
+#   puts 'タイトルを入力してください'
+#   title = gets.chomp
+#   puts '価格を入力してください'
+#   price = gets.to_i
+#   books = { author: author, title: title, price: price }
+# end
 
-def show_books(books)
-  calculate_average_price(books)
-  puts "見たい番号を入力してください"
-  books.each_with_index do |book, index|
-    puts "【#{index + 1}】#{book[:title]}"
-  end
-  show_detail(books[gets.to_i - 1])
-end
+# def show_books(books)
+#   calculate_average_price(books)
+#   puts "見たい番号を入力してください"
+#   books.each_with_index do |book, index|
+#     puts "【#{index + 1}】#{book[:title]}"
+#   end
+#   show_detail(books[gets.to_i - 1])
+# end
 
-def calculate_average_price(books)
-  total_price = 0
-  books.each do |book|
-    total_price += book[:price]
-  end
-  average_price = total_price / books.length
-  puts "平均価格:#{average_price}円"
-end
+# def calculate_average_price(books)
+#   total_price = 0
+#   books.each do |book|
+#     total_price += book[:price]
+#   end
+#   average_price = total_price / books.length
+#   puts "平均価格:#{average_price}円"
+# end
 
-def show_detail(book)
-  # 選択された本の詳細な情報（著者、タイトル、価格）を出力する
-  puts "著者: #{book[:author]}"
-  puts "タイトル: #{book[:title]}"
-  puts "価格: #{book[:price]}円"
-end
+# def show_detail(book)
+#   # 選択された本の詳細な情報（著者、タイトル、価格）を出力する
+#   puts "著者: #{book[:author]}"
+#   puts "タイトル: #{book[:title]}"
+#   puts "価格: #{book[:price]}円"
+# end
 
-books = []
-while true do
-  puts "番号を入力してください"
-  puts "0: 本を登録する"
-  puts "1: 本の一覧を見る"
-  puts "2: 終了する"
-  case gets.to_i
-  when 0
-    books << register_book
-  when 1
-    show_books(books)
-  when 2
-    exit
+# books = []
+# while true do
+#   puts "番号を入力してください"
+#   puts "0: 本を登録する"
+#   puts "1: 本の一覧を見る"
+#   puts "2: 終了する"
+#   case gets.to_i
+#   when 0
+#     books << register_book
+#   when 1
+#     show_books(books)
+#   when 2
+#     exit
+#   else
+#     puts '無効な値です'
+#   end
+# end
+# -------------------------
+# Rubyドリル53
+def get_days(year, month)
+  days_array = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  if year % 4 == 0 && year % 100 == 0 && year % 400 != 0 && month == 2
+    return 28
+  elsif year % 4 == 0 && month == 2
+    return 29
   else
-    puts '無効な値です'
+    return days_array[month - 1]
   end
 end
+
+puts "年を入力してください："
+year = gets.to_i
+puts "月を入力してください："
+month = gets.to_i
+
+days = get_days(year, month)
+puts "#{year}年#{month}月は#{days}日間あります"
