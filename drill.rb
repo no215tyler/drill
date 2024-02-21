@@ -760,21 +760,48 @@
 # end
 # -------------------------
 # Rubyドリル53
-def get_days(year, month)
-  days_array = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  if year % 4 == 0 && year % 100 == 0 && year % 400 != 0 && month == 2
-    return 28
-  elsif year % 4 == 0 && month == 2
-    return 29
-  else
-    return days_array[month - 1]
-  end
+# def get_days(year, month)
+#   days_array = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#   if year % 4 == 0 && year % 100 == 0 && year % 400 != 0 && month == 2
+#     return 28
+#   elsif year % 4 == 0 && month == 2
+#     return 29
+#   else
+#     return days_array[month - 1]
+#   end
+# end
+
+# puts "年を入力してください："
+# year = gets.to_i
+# puts "月を入力してください："
+# month = gets.to_i
+
+# days = get_days(year, month)
+# puts "#{year}年#{month}月は#{days}日間あります"
+# -------------------------
+# Rubyドリル54
+def register_data
+  puts 'データの登録'
 end
 
-puts "年を入力してください："
-year = gets.to_i
-puts "月を入力してください："
-month = gets.to_i
+def show_data
+  puts 'データの閲覧'
+end
 
-days = get_days(year, month)
-puts "#{year}年#{month}月は#{days}日間あります"
+while true
+  puts "選択してください"
+  puts "[0]登録する"
+  puts "[1]データを確認する"
+  puts "[2]終了する"
+  input = gets.to_i
+
+  if input == 0
+    register_data
+  elsif input == 1
+    show_data
+  elsif input == 2
+    exit
+  else
+    puts '無効な値です'
+  end
+end
