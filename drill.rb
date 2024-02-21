@@ -779,15 +779,39 @@
 # days = get_days(year, month)
 # puts "#{year}年#{month}月は#{days}日間あります"
 # -------------------------
-# Rubyドリル54
+# Rubyドリル54 & Rubyドリル55
 def register_data
-  puts 'データの登録'
+  personal_data = {}
+  puts '名前を入力してください'
+    personal_data[:name] = gets.chomp
+  puts '年齢を入力してください'
+    personal_data[:age] = gets.to_i
+  puts '身長を入力してください（単位:m）'
+    personal_data[:height] = gets.to_f
+  puts '体重を入力してください（単位:kg）'
+    personal_data[:weight] = gets.to_f
+  return personal_data
 end
 
-def show_data
-  puts 'データの閲覧'
+def show_data(data)
+  puts '確認したい人の番号を選択してください'
+  data.each_with_index do |data, index|
+    puts "【#{index + 1}】#{data[:name]}"
+  end
+  index = data.length
+  choose_num = gets.to_i
+  if choose_num <= index && choose_num != 0
+    puts "【名前】#{data[choose_num - 1][:name]}"
+    puts "【年齢】#{data[choose_num - 1][:age]}歳"
+    puts "【身長】#{data[choose_num - 1][:height]}m"
+    puts "【体重】#{data[choose_num - 1][:weight]}kg"
+  else
+    puts '無効な値です'
+    show_data(data)
+  end
 end
 
+data = []
 while true
   puts "選択してください"
   puts "[0]登録する"
@@ -796,9 +820,9 @@ while true
   input = gets.to_i
 
   if input == 0
-    register_data
+    data << register_data
   elsif input == 1
-    show_data
+    show_data(data)
   elsif input == 2
     exit
   else
