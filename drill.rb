@@ -836,7 +836,7 @@
 #   end
 # end
 # -------------------------
-# Rubyドリル57
+# Rubyドリル57 & Rubyドリル58 & Rubyドリル59
 def register_data
   combat_power = {}
   puts '名前を入力してください'
@@ -868,6 +868,7 @@ def show_data_list(data)
   end
   choose_num = get_valid_input(1, data.length)
   show_data(data[choose_num - 1])
+  hero_rank(data[choose_num - 1])
 end
 
 def show_data(data)
@@ -875,6 +876,19 @@ def show_data(data)
   puts "パンチ力：#{data[:punch]}"
   puts "キック力：#{data[:kick]}"
   puts "ジャンプ力：#{data[:jump]}"
+end
+
+def hero_rank(data)
+  power_data = data[:punch] + data[:kick] + data[:jump]
+  if power_data >= 250
+    puts "Rank:A"
+  elsif power_data < 250 && power_data >= 200
+    puts "Rank:B"
+  elsif power_data < 200 && power_data >= 100
+    puts "Rank:C"
+  elsif power_data < 100
+    puts "Rank:D"
+  end
 end
 
 data = []
