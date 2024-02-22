@@ -837,73 +837,99 @@
 # end
 # -------------------------
 # Rubyドリル57 & Rubyドリル58 & Rubyドリル59
-def register_data
-  combat_power = {}
-  puts '名前を入力してください'
-    combat_power[:name] = gets.chomp
-  puts 'パンチ力を入力してください(0 ~ 100)'
-    combat_power[:punch] = get_valid_input
-  puts 'キック力を入力してください(0 ~ 100)'
-    combat_power[:kick] = get_valid_input
-  puts 'ジャンプ力を入力してください(0 ~ 100)'
-    combat_power[:jump] = get_valid_input
-  return combat_power
-end
+# def register_data
+#   combat_power = {}
+#   puts '名前を入力してください'
+#     combat_power[:name] = gets.chomp
+#   puts 'パンチ力を入力してください(0 ~ 100)'
+#     combat_power[:punch] = get_valid_input
+#   puts 'キック力を入力してください(0 ~ 100)'
+#     combat_power[:kick] = get_valid_input
+#   puts 'ジャンプ力を入力してください(0 ~ 100)'
+#     combat_power[:jump] = get_valid_input
+#   return combat_power
+# end
 
-def get_valid_input(num1 = 0, num2 = 100)
-  while true
-  input = gets.to_i
-    if input < num1 || input > num2
-      puts "#{num1}〜#{num2}の範囲で数字を入力してください"
-    else
-      return input
-    end
+# def get_valid_input(num1 = 0, num2 = 100)
+#   while true
+#   input = gets.to_i
+#     if input < num1 || input > num2
+#       puts "#{num1}〜#{num2}の範囲で数字を入力してください"
+#     else
+#       return input
+#     end
+#   end
+# end
+
+# def show_data_list(data)
+#   puts '見たい人の番号を選択してください'
+#   data.each_with_index do |data, index|
+#     puts "【#{index + 1}】#{data[:name]}"
+#   end
+#   choose_num = get_valid_input(1, data.length)
+#   show_data(data[choose_num - 1])
+#   hero_rank(data[choose_num - 1])
+# end
+
+# def show_data(data)
+#   puts "名前：#{data[:name]}"
+#   puts "パンチ力：#{data[:punch]}"
+#   puts "キック力：#{data[:kick]}"
+#   puts "ジャンプ力：#{data[:jump]}"
+# end
+
+# def hero_rank(data)
+#   power_data = data[:punch] + data[:kick] + data[:jump]
+#   if power_data >= 250
+#     puts "Rank:A"
+#   elsif power_data < 250 && power_data >= 200
+#     puts "Rank:B"
+#   elsif power_data < 200 && power_data >= 100
+#     puts "Rank:C"
+#   elsif power_data < 100
+#     puts "Rank:D"
+#   end
+# end
+
+# data = []
+# while true
+#   puts "選択してください"
+#   puts "[0]登録する\n[1]データを確認する\n[2]終了する"
+#   input = gets.to_i
+#   case input
+#   when 0
+#     data << register_data
+#   when 1
+#     show_data_list(data)
+#   when 2
+#     exit
+#   else
+#     puts '無効な値です'
+#   end
+# end
+# -------------------------
+# Rubyドリル60
+class Dog
+  @@type = '犬'
+  def initialize
+    @name = 'マロン'
+    @dog_type = 'トイプードル'
+  end
+
+  def self.say
+    puts 'ワンワン'
+  end
+
+  def say_type
+    puts "わたしは#{@@type}です"
+  end
+
+  def self_introduction
+    puts "わたしの名前は#{@name}で種類は#{@dog_type}です"
   end
 end
 
-def show_data_list(data)
-  puts '見たい人の番号を選択してください'
-  data.each_with_index do |data, index|
-    puts "【#{index + 1}】#{data[:name]}"
-  end
-  choose_num = get_valid_input(1, data.length)
-  show_data(data[choose_num - 1])
-  hero_rank(data[choose_num - 1])
-end
-
-def show_data(data)
-  puts "名前：#{data[:name]}"
-  puts "パンチ力：#{data[:punch]}"
-  puts "キック力：#{data[:kick]}"
-  puts "ジャンプ力：#{data[:jump]}"
-end
-
-def hero_rank(data)
-  power_data = data[:punch] + data[:kick] + data[:jump]
-  if power_data >= 250
-    puts "Rank:A"
-  elsif power_data < 250 && power_data >= 200
-    puts "Rank:B"
-  elsif power_data < 200 && power_data >= 100
-    puts "Rank:C"
-  elsif power_data < 100
-    puts "Rank:D"
-  end
-end
-
-data = []
-while true
-  puts "選択してください"
-  puts "[0]登録する\n[1]データを確認する\n[2]終了する"
-  input = gets.to_i
-  case input
-  when 0
-    data << register_data
-  when 1
-    show_data_list(data)
-  when 2
-    exit
-  else
-    puts '無効な値です'
-  end
-end
+dog = Dog.new
+Dog.say
+dog.say_type
+dog.self_introduction
