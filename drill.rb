@@ -780,56 +780,86 @@
 # puts "#{year}年#{month}月は#{days}日間あります"
 # -------------------------
 # Rubyドリル54 & Rubyドリル55 & Rubyドリル56
+# def register_data
+#   personal_data = {}
+#   puts '名前を入力してください'
+#     personal_data[:name] = gets.chomp
+#   puts '年齢を入力してください'
+#     personal_data[:age] = gets.to_i
+#   puts '身長を入力してください（単位:m）'
+#     personal_data[:height] = gets.to_f
+#   puts '体重を入力してください（単位:kg）'
+#     personal_data[:weight] = gets.to_f
+#     personal_data[:bmi] = calculate_bmi(personal_data[:weight], personal_data[:height])
+#   return personal_data
+# end
+
+# def show_data(data)
+#   puts '確認したい人の番号を選択してください'
+#   data.each_with_index do |data, index|
+#     puts "【#{index + 1}】#{data[:name]}"
+#   end
+#   index = data.length
+#   choose_num = gets.to_i
+#   if choose_num <= index && choose_num != 0
+#     puts "【名前】#{data[choose_num - 1][:name]}"
+#     puts "【年齢】#{data[choose_num - 1][:age]}歳"
+#     puts "【身長】#{data[choose_num - 1][:height]}m"
+#     puts "【体重】#{data[choose_num - 1][:weight]}kg"
+#     puts "【BMI】#{data[choose_num - 1][:bmi]}"
+#   else
+#     puts '無効な値です'
+#     show_data(data)
+#   end
+# end
+
+# def calculate_bmi(weight, height)
+#   return (weight / height / height).floor(2)
+# end
+
+# data = []
+# while true
+#   puts "選択してください"
+#   puts "[0]登録する"
+#   puts "[1]データを確認する"
+#   puts "[2]終了する"
+#   input = gets.to_i
+
+#   if input == 0
+#     data << register_data
+#   elsif input == 1
+#     show_data(data)
+#   elsif input == 2
+#     exit
+#   else
+#     puts '無効な値です'
+#   end
+# end
+# -------------------------
+# Rubyドリル57
 def register_data
-  personal_data = {}
   puts '名前を入力してください'
-    personal_data[:name] = gets.chomp
-  puts '年齢を入力してください'
-    personal_data[:age] = gets.to_i
-  puts '身長を入力してください（単位:m）'
-    personal_data[:height] = gets.to_f
-  puts '体重を入力してください（単位:kg）'
-    personal_data[:weight] = gets.to_f
-    personal_data[:bmi] = calculate_bmi(personal_data[:weight], personal_data[:height])
-  return personal_data
+  puts 'パンチ力を入力してください(0 ~ 100)'
+  puts 'キック力を入力してください(0 ~ 100)'
+  puts 'ジャンプ力を入力してください(0 ~ 100)'
 end
 
-def show_data(data)
-  puts '確認したい人の番号を選択してください'
-  data.each_with_index do |data, index|
-    puts "【#{index + 1}】#{data[:name]}"
-  end
-  index = data.length
-  choose_num = gets.to_i
-  if choose_num <= index && choose_num != 0
-    puts "【名前】#{data[choose_num - 1][:name]}"
-    puts "【年齢】#{data[choose_num - 1][:age]}歳"
-    puts "【身長】#{data[choose_num - 1][:height]}m"
-    puts "【体重】#{data[choose_num - 1][:weight]}kg"
-    puts "【BMI】#{data[choose_num - 1][:bmi]}"
-  else
-    puts '無効な値です'
-    show_data(data)
-  end
+def show_data_list
+  puts '見たい人の番号を選択してください'
 end
 
-def calculate_bmi(weight, height)
-  return (weight / height / height).floor(2)
-end
-
-data = []
 while true
+  # アプリを実行した時に、選択肢が表示される処理
   puts "選択してください"
-  puts "[0]登録する"
-  puts "[1]データを確認する"
-  puts "[2]終了する"
+  puts "[0]登録する\n[1]データを確認する\n[2]終了する"
   input = gets.to_i
-
-  if input == 0
-    data << register_data
-  elsif input == 1
-    show_data(data)
-  elsif input == 2
+  # 入力した値に応じて実行される処理
+  case input
+  when 0
+    register_data
+  when 1
+    show_data_list
+  when 2
     exit
   else
     puts '無効な値です'
