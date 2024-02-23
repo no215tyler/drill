@@ -934,7 +934,7 @@
 # dog.say_type
 # dog.self_introduction
 # -------------------------
-# Rubyドリル61
+# Rubyドリル61 & Rubyドリル62
 def register_data
   car_infomation = {}
   puts "車種を入力してください"
@@ -953,6 +953,7 @@ def show_data_index(data)
   end
   choose_index = get_valid_input(data.length) - 1
   show_data(data[choose_index])
+  calculate_fuel(data[choose_index])
 end
 
 def get_valid_input(upper = 1, lower = 1)
@@ -968,6 +969,13 @@ def show_data(data)
   puts "  車種:#{data[:car_model]}"
   puts "  1Lあたりの走行可能距離:#{data[:fuel_efficiency]}(km/L)"
   puts "  乗車可能人数:#{data[:capacity]}人"
+end
+
+def calculate_fuel(data)
+  puts "走行予定距離を入力してください"
+    km = gets.to_f
+  fuel = (km / data[:fuel_efficiency]).round(1)
+  puts "  > ガソリンの消費予定は#{fuel}Lです"
 end
 
 data = []
