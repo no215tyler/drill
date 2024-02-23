@@ -1247,26 +1247,69 @@
 # end
 # -------------------------
 # Rubyドリル69
+# class Food
+#   @@cook_menu = []
+#   def self.input
+#     menu_info = []
+#     puts "料理名を入力してください"
+#     menu_info << gets.chomp
+#     puts "カロリーを入力してください"
+#     menu_info << gets.to_i
+#     @@cook_menu << menu_info
+#   end
+
+#   def self.show_all_calorie
+#     total_calorie = 0
+#     puts "-----------------------------"
+#     @@cook_menu.each do |menu|
+#       puts "#{menu[0]}   :#{menu[1]}kcal"
+#       total_calorie += menu[1]
+#     end
+#     puts "-----------------------------"
+#     puts "カロリー合計   :#{total_calorie}kcal"
+#   end
+# end
+
+# while true do
+#   puts "[0]:カロリーを入力する"
+#   puts "[1]:カロリーの合計を見る"
+#   input = gets.to_i
+
+#   if input == 0
+#     Food.input           # カロリーの入力
+#   elsif input == 1
+#     Food.show_all_calorie # カロリーの合計を表示
+#     exit
+#   end
+# end
+# -------------------------
+# Rubyドリル69 インスタンス生成版
 class Food
-  @@cook_menu = []
+  @@foods_menu = []
+  attr_accessor :name, :calorie
+
+  def initialize(name, calorie)
+    @name = name
+    @calorie = calorie
+  end
+
   def self.input
-    menu_info = []
-    puts "料理名を入力してください"
-    menu_info << gets.chomp
-    puts "カロリーを入力してください"
-    menu_info << gets.to_i
-    @@cook_menu << menu_info
+    puts "料理名を入力してください:"
+    menu = gets.chomp
+    puts "カロリーを入力してください:"
+    calorie = gets.to_i
+    @@foods_menu << Food.new(menu, calorie)
   end
 
   def self.show_all_calorie
     total_calorie = 0
     puts "-----------------------------"
-    @@cook_menu.each do |menu|
-      puts "#{menu[0]}   :#{menu[1]}kcal"
-      total_calorie += menu[1]
+    @@foods_menu.each do |menu|
+      puts "#{menu.name}   :#{menu.calorie}kcal"
+      total_calorie += menu.calorie
     end
     puts "-----------------------------"
-    puts "カロリー合計   :#{total_calorie}kcal"
+    puts "合計金額   :#{total_calorie}kcal"
   end
 end
 
@@ -1276,7 +1319,7 @@ while true do
   input = gets.to_i
 
   if input == 0
-    Food.input           # カロリーの入力
+    Food.input # カロリーの入力
   elsif input == 1
     Food.show_all_calorie # カロリーの合計を表示
     exit
