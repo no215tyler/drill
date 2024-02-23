@@ -1125,16 +1125,16 @@
 #   end
 # end
 # -------------------------
-# Rubyドリル67
+# Rubyドリル67 & Rubyドリル68
 def post_item(a_cart)
   # 商品名・値段・個数の入力を促し、入力された値をハッシュオブジェクトで管理する
   item = {}
   puts "商品名を入力してください："
-    item[:name] = gets.chomp
+    item[:name] = get_valid_input("string")
   puts "単価を入力してください："
-    item[:price] = gets.to_i
+    item[:price] = get_valid_input("integer")
   puts "個数を入力してください："
-    item[:amount] = gets.to_i
+    item[:amount] = get_valid_input("integer")
   line = "---------------------------"
 
   # 入力された値（ハッシュオブジェクトで管理している値）と合計金額を表示する
@@ -1164,6 +1164,8 @@ def check_items(a_cart)
   puts "合計金額 :#{total_price} "
   puts "---------------------------"
 
+  #会計確認
+  confirm_payment(total_price)
 end
 
 def end_program
@@ -1172,6 +1174,56 @@ end
 
 def exception
   puts "入力された値は無効な値です"
+end
+
+def get_valid_input(type)
+  input = nil
+  while true
+    case type
+    when "string"
+      input = gets.chomp
+      if /\A[ぁ-んァ-ヶ一-龥々a-z]+/.match?(input)
+        return input
+      else
+        puts "無効な値です。文字列を入力してください。"
+      end
+    when "integer"
+      input = gets.chomp
+      if /\A\d+\z/.match?(input)
+        return input.to_i
+      else
+        puts "無効な値です。整数を入力してください。"
+      end
+    end
+  end
+end
+
+def confirm_payment(total_price)
+  puts "【確認】\n [0]買い物を続ける\n [1]支払いへ進む"
+  if get_valid_range == 1
+    buy_item(total_price)
+  end
+end
+
+def buy_item(total_price)
+  puts "合計金額：¥#{total_price}"
+  puts "支払い金額を入力してください"
+  amount_money = get_valid_input("integer")
+  while amount_money < total_price
+    puts "金額が不足しています。\n支払い金額を入力してください。"
+    amount_money = get_valid_input("integer")
+  end
+  puts "【決済完了】お釣りは#{amount_money - total_price}円です。ご購入ありがとうございました。"
+  exit
+end
+
+def get_valid_range(upper = 1, lower = 0)
+  input = gets.to_i
+  while input < lower || input > upper
+    puts "#{lower}以上#{upper}以下の数字を入力してください"
+    input = gets.to_i
+  end
+  return input
 end
 
 cart = []
