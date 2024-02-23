@@ -935,76 +935,82 @@
 # dog.self_introduction
 # -------------------------
 # Rubyドリル61 & Rubyドリル62 & Rubyドリル63
-def register_data
-  car_infomation = {}
-  puts "車種を入力してください"
-    car_infomation[:car_model] = gets.chomp
-  puts "1Lあたりの走行可能距離(km/L)を入力してください"
-    car_infomation[:fuel_efficiency] = gets.to_f
-  puts "乗車可能人数を入力してください"
-    car_infomation[:capacity] = gets.to_i
-  return car_infomation
-end
+# def register_data
+#   car_infomation = {}
+#   puts "車種を入力してください"
+#     car_infomation[:car_model] = gets.chomp
+#   puts "1Lあたりの走行可能距離(km/L)を入力してください"
+#     car_infomation[:fuel_efficiency] = gets.to_f
+#   puts "乗車可能人数を入力してください"
+#     car_infomation[:capacity] = gets.to_i
+#   return car_infomation
+# end
 
-def show_data_index(data)
-  puts "確認するデータを選択してください"
-  data.each_with_index do |data, index|
-    puts " 【#{index + 1}】#{data[:car_model]}"
-  end
-  choose_index = get_valid_input(data.length) - 1
-  show_data(data[choose_index])
-  calculate_fuel(data[choose_index])
-  calculate_capacity(data[choose_index])
-end
+# def show_data_index(data)
+#   puts "確認するデータを選択してください"
+#   data.each_with_index do |data, index|
+#     puts " 【#{index + 1}】#{data[:car_model]}"
+#   end
+#   choose_index = get_valid_input(data.length) - 1
+#   show_data(data[choose_index])
+#   calculate_fuel(data[choose_index])
+#   calculate_capacity(data[choose_index])
+# end
 
-def get_valid_input(upper = 1, lower = 1)
-  input = gets.to_i
-  while input < lower || input > upper
-    puts "#{lower}以上#{upper}以下の数字を入力してください"
-    input = gets.to_i
-  end
-  return input
-end
+# def get_valid_input(upper = 1, lower = 1)
+#   input = gets.to_i
+#   while input < lower || input > upper
+#     puts "#{lower}以上#{upper}以下の数字を入力してください"
+#     input = gets.to_i
+#   end
+#   return input
+# end
 
-def show_data(data)
-  puts "  車種:#{data[:car_model]}"
-  puts "  1Lあたりの走行可能距離:#{data[:fuel_efficiency]}(km/L)"
-  puts "  乗車可能人数:#{data[:capacity]}人"
-end
+# def show_data(data)
+#   puts "  車種:#{data[:car_model]}"
+#   puts "  1Lあたりの走行可能距離:#{data[:fuel_efficiency]}(km/L)"
+#   puts "  乗車可能人数:#{data[:capacity]}人"
+# end
 
-def calculate_fuel(data)
-  puts "走行予定距離を入力してください"
-    km = gets.to_f
-  fuel = (km / data[:fuel_efficiency]).round(1)
-  puts "  > ガソリンの消費予定は#{fuel}Lです"
-end
+# def calculate_fuel(data)
+#   puts "走行予定距離を入力してください"
+#     km = gets.to_f
+#   fuel = (km / data[:fuel_efficiency]).round(1)
+#   puts "  > ガソリンの消費予定は#{fuel}Lです"
+# end
 
-def calculate_capacity(data)
-  puts "乗車予定人数を入力してください"
-  rider = gets.to_i
-  possible_amount = data[:capacity] - rider
-  if possible_amount < 0
-    puts "  > #{possible_amount.abs}名の定員オーバーです"
-  elsif possible_amount > 0
-    puts "  > あと#{possible_amount}名乗車できます"
-  else
-    puts "  > 定員です"
-  end
-end
+# def calculate_capacity(data)
+#   puts "乗車予定人数を入力してください"
+#   rider = gets.to_i
+#   possible_amount = data[:capacity] - rider
+#   if possible_amount < 0
+#     puts "  > #{possible_amount.abs}名の定員オーバーです"
+#   elsif possible_amount > 0
+#     puts "  > あと#{possible_amount}名乗車できます"
+#   else
+#     puts "  > 定員です"
+#   end
+# end
 
-data = []
-while true
-  puts "プログラムを選択してください"
-  puts "  [0]データの登録\n  [1]データの確認\n  [2]プログラムの終了"
-  program_num = gets.to_i
-  case program_num
-  when 0
-    data << register_data
-  when 1
-    show_data_index(data)
-  when 2
-    exit
-  else
-    puts "無効な値です"
-  end
-end
+# data = []
+# while true
+#   puts "プログラムを選択してください"
+#   puts "  [0]データの登録\n  [1]データの確認\n  [2]プログラムの終了"
+#   program_num = gets.to_i
+#   case program_num
+#   when 0
+#     data << register_data
+#   when 1
+#     show_data_index(data)
+#   when 2
+#     exit
+#   else
+#     puts "無効な値です"
+#   end
+# end
+# -------------------------
+# Rubyドリル64
+week_array = ["日", "月", "火", "水", "木", "金", "土"]
+now = Time.new
+puts "現在は西暦#{now.year}年#{now.month}月#{now.day}日"
+puts "#{week_array[now.wday]}曜日です"
