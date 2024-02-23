@@ -1060,67 +1060,136 @@
 # end
 # -------------------------
 # Rubyドリル66
-def registration_student
-  student = {}
-  puts '生徒名を入力してください'
-    student[:name] = gets.chomp
-  puts '生徒の年齢を入力してください'
-    student[:age] = gets.to_i
-  puts "国語の得点は？"
-    student[:japanese] = get_valid_score
-  puts "数学の得点は？"
-    student[:math] = get_valid_score
-  puts "英語の得点は？"
-    student[:english] = get_valid_score
-  return student
+# def registration_student
+#   student = {}
+#   puts '生徒名を入力してください'
+#     student[:name] = gets.chomp
+#   puts '生徒の年齢を入力してください'
+#     student[:age] = gets.to_i
+#   puts "国語の得点は？"
+#     student[:japanese] = get_valid_score
+#   puts "数学の得点は？"
+#     student[:math] = get_valid_score
+#   puts "英語の得点は？"
+#     student[:english] = get_valid_score
+#   return student
+# end
+
+# def show_student_name(data)
+#   puts '見たい生徒の番号を入力してください'
+#   data.each_with_index do |data, index|
+#     puts "  【#{index + 1}】#{data[:name]}"
+#   end
+#   choose_num = get_valid_input(data) - 1
+#   puts "名前:#{data[choose_num][:name]}"
+#   puts "年齢:#{data[choose_num][:age]}"
+#   puts "国語:#{data[choose_num][:japanese]}"
+#   puts "数学:#{data[choose_num][:math]}"
+#   puts "英語:#{data[choose_num][:english]}"
+# end
+
+# def get_valid_score
+#   score = gets.to_i
+#   while score < 0 || score > 100
+#     puts "0 〜 100の数値を入力してください"
+#     score = gets.to_i
+#   end
+#   return score
+# end
+
+# def get_valid_input(data)
+#   input = gets.to_i
+#   while input < data.length || input > data.length
+#     puts "無効な値です"
+#     input = gets.to_i
+#   end
+#   return input
+# end
+
+# students = []
+
+# while true
+#   puts '行いたい項目を選択してください'
+#   puts '[1]点数を登録する'
+#   puts '[2]点数を確認する'
+#   puts '[3]終了する'
+#   input = gets.to_i
+#   if input == 1
+#     students << registration_student
+#   elsif input == 2
+#     show_student_name(students)
+#   elsif input == 3
+#     exit
+#   else
+#     puts '無効な値です'
+#   end
+# end
+# -------------------------
+# Rubyドリル67
+def post_item(a_cart)
+  # 商品名・値段・個数の入力を促し、入力された値をハッシュオブジェクトで管理する
+  item = {}
+  puts "商品名を入力してください："
+    item[:name] = gets.chomp
+  puts "単価を入力してください："
+    item[:price] = gets.to_i
+  puts "個数を入力してください："
+    item[:amount] = gets.to_i
+  line = "---------------------------"
+
+  # 入力された値（ハッシュオブジェクトで管理している値）と合計金額を表示する
+  puts "商品名 : #{item[:name]}"
+  puts "単価 : #{item[:price]}"
+  puts "個数 : #{item[:amount]}"
+  puts "合計金額 : #{item[:price] * item[:amount]}"
+
+  # ハッシュを配列オブジェクトに追加する
+  a_cart << item
+
+  # a_cartをメソッドの呼び出し元に返す
+  return a_cart
 end
 
-def show_student_name(data)
-  puts '見たい生徒の番号を入力してください'
-  data.each_with_index do |data, index|
-    puts "  【#{index + 1}】#{data[:name]}"
+def check_items(a_cart)
+  # 保存された全ての商品情報（商品名・値段・個数）を、商品ごとに表示する
+  total_price = 0
+  a_cart.each_with_index do |item, index|
+    puts "【#{index + 1}】商品名:#{item[:name]}"
+    puts "     単価:#{item[:price]}"
+    puts "     個数:#{item[:amount]}"
+    total_price += (item[:price] * item[:amount])
   end
-  choose_num = get_valid_input(data) - 1
-  puts "名前:#{data[choose_num][:name]}"
-  puts "年齢:#{data[choose_num][:age]}"
-  puts "国語:#{data[choose_num][:japanese]}"
-  puts "数学:#{data[choose_num][:math]}"
-  puts "英語:#{data[choose_num][:english]}"
+  # 全ての商品の合計金額を表示する
+  puts "---------------------------"
+  puts "合計金額 :#{total_price} "
+  puts "---------------------------"
+
 end
 
-def get_valid_score
-  score = gets.to_i
-  while score < 0 || score > 100
-    puts "0 〜 100の数値を入力してください"
-    score = gets.to_i
-  end
-  return score
+def end_program
+  exit
 end
 
-def get_valid_input(data)
+def exception
+  puts "入力された値は無効な値です"
+end
+
+cart = []
+
+while true do
+  puts "商品数: #{cart.length}"
+  puts "[0]商品をカートに入れる"
+  puts "[1]カートを確認する" unless cart.empty? #カートに商品がない場合、[1]は選択不可
+  puts "[2]アプリを終了する"
   input = gets.to_i
-  while input < data.length || input > data.length
-    puts "無効な値です"
-    input = gets.to_i
-  end
-  return input
-end
 
-students = []
-
-while true
-  puts '行いたい項目を選択してください'
-  puts '[1]点数を登録する'
-  puts '[2]点数を確認する'
-  puts '[3]終了する'
-  input = gets.to_i
-  if input == 1
-    students << registration_student
-  elsif input == 2
-    show_student_name(students)
-  elsif input == 3
-    exit
+  if input == 0 then
+    cart = post_item(cart)
+  elsif input == 1 then
+    check_items(cart)
+  elsif input == 2 then
+    end_program
   else
-    puts '無効な値です'
+    exception
   end
 end
