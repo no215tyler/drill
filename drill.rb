@@ -1284,44 +1284,94 @@
 # end
 # -------------------------
 # Rubyドリル69 インスタンス生成版
-class Food
-  @@foods_menu = []
-  attr_accessor :name, :calorie
+# class Food
+#   @@foods_menu = []
+#   attr_accessor :name, :calorie
 
-  def initialize(name, calorie)
-    @name = name
-    @calorie = calorie
+#   def initialize(name, calorie)
+#     @name = name
+#     @calorie = calorie
+#   end
+
+#   def self.input
+#     puts "料理名を入力してください:"
+#     menu = gets.chomp
+#     puts "カロリーを入力してください:"
+#     calorie = gets.to_i
+#     @@foods_menu << Food.new(menu, calorie)
+#   end
+
+#   def self.show_all_calorie
+#     total_calorie = 0
+#     puts "-----------------------------"
+#     @@foods_menu.each do |menu|
+#       puts "#{menu.name}   :#{menu.calorie}kcal"
+#       total_calorie += menu.calorie
+#     end
+#     puts "-----------------------------"
+#     puts "合計金額   :#{total_calorie}kcal"
+#   end
+# end
+
+# while true do
+#   puts "[0]:カロリーを入力する"
+#   puts "[1]:カロリーの合計を見る"
+#   input = gets.to_i
+
+#   if input == 0
+#     Food.input # カロリーの入力
+#   elsif input == 1
+#     Food.show_all_calorie # カロリーの合計を表示
+#     exit
+#   end
+# end
+# -------------------------
+# Rubyドリル70
+def get_week(year, month, day)
+  leap_count = get_leap_count(year, month)
+  days_array = %w(0 31 28 31 30 31 30 31 31 30 31 30 31)
+  days = 0
+  for i in 0...month
+    days += days_array[i].to_i
   end
+  days += (year - 1) * 365 + day
+  puts days # debug
+  index = days % 7
+  week_array = %w(日 月 火 水 木 金 土)
+  week_array[index]
+end
 
-  def self.input
-    puts "料理名を入力してください:"
-    menu = gets.chomp
-    puts "カロリーを入力してください:"
-    calorie = gets.to_i
-    @@foods_menu << Food.new(menu, calorie)
-  end
-
-  def self.show_all_calorie
-    total_calorie = 0
-    puts "-----------------------------"
-    @@foods_menu.each do |menu|
-      puts "#{menu.name}   :#{menu.calorie}kcal"
-      total_calorie += menu.calorie
+def get_leap_count(year, month)
+  count = 0
+  for i in 1..year - 1
+    if i % 4 == 0 && i % 100 == 0 && i % 400 != 0
+    elsif i % 4 == 0
+      count += 1
     end
-    puts "-----------------------------"
-    puts "合計金額   :#{total_calorie}kcal"
   end
+
+  if year % 4 == 0 && year % 100 == 0 && year % 400 != 0
+  elsif year % 4 == 0 && month >= 3
+    count += 1
+  end
+  count
 end
 
-while true do
-  puts "[0]:カロリーを入力する"
-  puts "[1]:カロリーの合計を見る"
-  input = gets.to_i
+puts "年を入力してください："
+year = gets.to_i
+puts "月を入力してください："
+month = gets.to_i
+puts "日を入力してください："
+day = gets.to_i
 
-  if input == 0
-    Food.input # カロリーの入力
-  elsif input == 1
-    Food.show_all_calorie # カロリーの合計を表示
-    exit
-  end
-end
+week = get_week(year, month, day)
+puts "#{year}年#{month}月#{day}日は#{week}曜日です"
+
+# 閏年を考慮する
+  # yearに対し4と100で割り切れ、400で割り切れない年号がいくつあるか（閏年）をカウントする
+    # 閏年のカウント結果を最終的に足し算
+      # (審議)入力値が3月を迎えているかどうかで1を加算・減算
+# 月毎の暦配列を用意しmonthを上限の添字として配列内の暦を加算（forメソッド）した結果を変数daysへ代入
+  # 累積日付 = (year - 1) * 365 + 変数days
+# 曜日の配列を用意（日〜土の順）
+  # 累積の日付を7で割った余り（剰余）が曜日配列の添字になる
