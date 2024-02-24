@@ -909,27 +909,469 @@
 # end
 # -------------------------
 # Rubyドリル60
-class Dog
-  @@type = '犬'
-  def initialize
-    @name = 'マロン'
-    @dog_type = 'トイプードル'
-  end
+# class Dog
+#   @@type = '犬'
+#   def initialize
+#     @name = 'マロン'
+#     @dog_type = 'トイプードル'
+#   end
 
-  def self.say
-    puts 'ワンワン'
-  end
+#   def self.say
+#     puts 'ワンワン'
+#   end
 
-  def say_type
-    puts "わたしは#{@@type}です"
-  end
+#   def say_type
+#     puts "わたしは#{@@type}です"
+#   end
 
-  def self_introduction
-    puts "わたしの名前は#{@name}で種類は#{@dog_type}です"
+#   def self_introduction
+#     puts "わたしの名前は#{@name}で種類は#{@dog_type}です"
+#   end
+# end
+
+# dog = Dog.new
+# Dog.say
+# dog.say_type
+# dog.self_introduction
+# -------------------------
+# Rubyドリル61 & Rubyドリル62 & Rubyドリル63
+# def register_data
+#   car_infomation = {}
+#   puts "車種を入力してください"
+#     car_infomation[:car_model] = gets.chomp
+#   puts "1Lあたりの走行可能距離(km/L)を入力してください"
+#     car_infomation[:fuel_efficiency] = gets.to_f
+#   puts "乗車可能人数を入力してください"
+#     car_infomation[:capacity] = gets.to_i
+#   return car_infomation
+# end
+
+# def show_data_index(data)
+#   puts "確認するデータを選択してください"
+#   data.each_with_index do |data, index|
+#     puts " 【#{index + 1}】#{data[:car_model]}"
+#   end
+#   choose_index = get_valid_input(data.length) - 1
+#   show_data(data[choose_index])
+#   calculate_fuel(data[choose_index])
+#   calculate_capacity(data[choose_index])
+# end
+
+# def get_valid_input(upper = 1, lower = 1)
+#   input = gets.to_i
+#   while input < lower || input > upper
+#     puts "#{lower}以上#{upper}以下の数字を入力してください"
+#     input = gets.to_i
+#   end
+#   return input
+# end
+
+# def show_data(data)
+#   puts "  車種:#{data[:car_model]}"
+#   puts "  1Lあたりの走行可能距離:#{data[:fuel_efficiency]}(km/L)"
+#   puts "  乗車可能人数:#{data[:capacity]}人"
+# end
+
+# def calculate_fuel(data)
+#   puts "走行予定距離を入力してください"
+#     km = gets.to_f
+#   fuel = (km / data[:fuel_efficiency]).round(1)
+#   puts "  > ガソリンの消費予定は#{fuel}Lです"
+# end
+
+# def calculate_capacity(data)
+#   puts "乗車予定人数を入力してください"
+#   rider = gets.to_i
+#   possible_amount = data[:capacity] - rider
+#   if possible_amount < 0
+#     puts "  > #{possible_amount.abs}名の定員オーバーです"
+#   elsif possible_amount > 0
+#     puts "  > あと#{possible_amount}名乗車できます"
+#   else
+#     puts "  > 定員です"
+#   end
+# end
+
+# data = []
+# while true
+#   puts "プログラムを選択してください"
+#   puts "  [0]データの登録\n  [1]データの確認\n  [2]プログラムの終了"
+#   program_num = gets.to_i
+#   case program_num
+#   when 0
+#     data << register_data
+#   when 1
+#     show_data_index(data)
+#   when 2
+#     exit
+#   else
+#     puts "無効な値です"
+#   end
+# end
+# -------------------------
+# Rubyドリル64
+# week_array = ["日", "月", "火", "水", "木", "金", "土"]
+# now = Time.new
+# puts "現在は西暦#{now.year}年#{now.month}月#{now.day}日"
+# puts "#{week_array[now.wday]}曜日です"
+# -------------------------
+# Rubyドリル65
+# def janken
+#   puts "[0]:グー\n[1]:チョキ\n[2]:パー"
+
+#   # ターミナルからじゃんけんの手を入力
+#   player_hand = gets.to_i
+
+#   # 乱数でプログラム側の手を決定
+#   program_hand = rand(3)
+
+#   jankens = %w(グー チョキ パー)
+
+#   puts "あなたの手:#{jankens[player_hand]}, わたしの手:#{jankens[program_hand]}"
+
+#   # あいこの判定はplayer_handとprogram_handの値が等しいとき
+#   if  player_hand == program_hand
+#     puts "あいこで"
+#     # 返り値を返す
+#     return true
+
+#   # じゃんけんに勝つパターンを全て並べる
+#   elsif player_hand == 0 && program_hand == 1 || 
+#         player_hand == 1 && program_hand == 2 || 
+#         player_hand == 2 && program_hand == 0
+#     puts "あなたの勝ちです"
+#   # 返り値を返す
+#     return false
+
+#   else
+#     puts "あなたの負けです"
+#     # 返り値を返す
+#     return false
+#   end
+# end
+
+# next_game = true
+
+# puts "最初はグー、じゃんけん..."
+
+# while next_game do
+#   # jankenメソッドの返り値をnext_gameに代入
+#   next_game = janken
+# end
+# -------------------------
+# Rubyドリル66
+# def registration_student
+#   student = {}
+#   puts '生徒名を入力してください'
+#     student[:name] = gets.chomp
+#   puts '生徒の年齢を入力してください'
+#     student[:age] = gets.to_i
+#   puts "国語の得点は？"
+#     student[:japanese] = get_valid_score
+#   puts "数学の得点は？"
+#     student[:math] = get_valid_score
+#   puts "英語の得点は？"
+#     student[:english] = get_valid_score
+#   return student
+# end
+
+# def show_student_name(data)
+#   puts '見たい生徒の番号を入力してください'
+#   data.each_with_index do |data, index|
+#     puts "  【#{index + 1}】#{data[:name]}"
+#   end
+#   choose_num = get_valid_input(data) - 1
+#   puts "名前:#{data[choose_num][:name]}"
+#   puts "年齢:#{data[choose_num][:age]}"
+#   puts "国語:#{data[choose_num][:japanese]}"
+#   puts "数学:#{data[choose_num][:math]}"
+#   puts "英語:#{data[choose_num][:english]}"
+# end
+
+# def get_valid_score
+#   score = gets.to_i
+#   while score < 0 || score > 100
+#     puts "0 〜 100の数値を入力してください"
+#     score = gets.to_i
+#   end
+#   return score
+# end
+
+# def get_valid_input(data)
+#   input = gets.to_i
+#   while input < data.length || input > data.length
+#     puts "無効な値です"
+#     input = gets.to_i
+#   end
+#   return input
+# end
+
+# students = []
+
+# while true
+#   puts '行いたい項目を選択してください'
+#   puts '[1]点数を登録する'
+#   puts '[2]点数を確認する'
+#   puts '[3]終了する'
+#   input = gets.to_i
+#   if input == 1
+#     students << registration_student
+#   elsif input == 2
+#     show_student_name(students)
+#   elsif input == 3
+#     exit
+#   else
+#     puts '無効な値です'
+#   end
+# end
+# -------------------------
+# Rubyドリル67 & Rubyドリル68
+# def post_item(a_cart)
+#   # 商品名・値段・個数の入力を促し、入力された値をハッシュオブジェクトで管理する
+#   item = {}
+#   puts "商品名を入力してください："
+#     item[:name] = get_valid_input("string")
+#   puts "単価を入力してください："
+#     item[:price] = get_valid_input("integer")
+#   puts "個数を入力してください："
+#     item[:amount] = get_valid_input("integer")
+#   line = "---------------------------"
+
+#   # 入力された値（ハッシュオブジェクトで管理している値）と合計金額を表示する
+#   puts "商品名 : #{item[:name]}"
+#   puts "単価 : #{item[:price]}"
+#   puts "個数 : #{item[:amount]}"
+#   puts "合計金額 : #{item[:price] * item[:amount]}"
+
+#   # ハッシュを配列オブジェクトに追加する
+#   a_cart << item
+
+#   # a_cartをメソッドの呼び出し元に返す
+#   return a_cart
+# end
+
+# def check_items(a_cart)
+#   # 保存された全ての商品情報（商品名・値段・個数）を、商品ごとに表示する
+#   total_price = 0
+#   a_cart.each_with_index do |item, index|
+#     puts "【#{index + 1}】商品名:#{item[:name]}"
+#     puts "     単価:#{item[:price]}"
+#     puts "     個数:#{item[:amount]}"
+#     total_price += (item[:price] * item[:amount])
+#   end
+#   # 全ての商品の合計金額を表示する
+#   puts "---------------------------"
+#   puts "合計金額 :#{total_price} "
+#   puts "---------------------------"
+
+#   #会計確認
+#   confirm_payment(total_price)
+# end
+
+# def end_program
+#   exit
+# end
+
+# def exception
+#   puts "入力された値は無効な値です"
+# end
+
+# def get_valid_input(type)
+#   input = nil
+#   while true
+#     case type
+#     when "string"
+#       input = gets.chomp
+#       if /\A[ぁ-んァ-ヶ一-龥々a-z]+/.match?(input)
+#         return input
+#       else
+#         puts "無効な値です。文字列を入力してください。"
+#       end
+#     when "integer"
+#       input = gets.chomp
+#       if /\A\d+\z/.match?(input)
+#         return input.to_i
+#       else
+#         puts "無効な値です。整数を入力してください。"
+#       end
+#     end
+#   end
+# end
+
+# def confirm_payment(total_price)
+#   puts "【確認】\n [0]買い物を続ける\n [1]支払いへ進む"
+#   if get_valid_range == 1
+#     buy_item(total_price)
+#   end
+# end
+
+# def buy_item(total_price)
+#   puts "合計金額：¥#{total_price}"
+#   puts "支払い金額を入力してください"
+#   amount_money = get_valid_input("integer")
+#   while amount_money < total_price
+#     puts "金額が不足しています。\n支払い金額を入力してください。"
+#     amount_money = get_valid_input("integer")
+#   end
+#   puts "【決済完了】お釣りは#{amount_money - total_price}円です。ご購入ありがとうございました。"
+#   exit
+# end
+
+# def get_valid_range(upper = 1, lower = 0)
+#   input = gets.to_i
+#   while input < lower || input > upper
+#     puts "#{lower}以上#{upper}以下の数字を入力してください"
+#     input = gets.to_i
+#   end
+#   return input
+# end
+
+# cart = []
+
+# while true do
+#   puts "商品数: #{cart.length}"
+#   puts "[0]商品をカートに入れる"
+#   puts "[1]カートを確認する" unless cart.empty? #カートに商品がない場合、[1]は選択不可
+#   puts "[2]アプリを終了する"
+#   input = gets.to_i
+
+#   if input == 0 then
+#     cart = post_item(cart)
+#   elsif input == 1 then
+#     check_items(cart)
+#   elsif input == 2 then
+#     end_program
+#   else
+#     exception
+#   end
+# end
+# -------------------------
+# Rubyドリル69
+# class Food
+#   @@cook_menu = []
+#   def self.input
+#     menu_info = []
+#     puts "料理名を入力してください"
+#     menu_info << gets.chomp
+#     puts "カロリーを入力してください"
+#     menu_info << gets.to_i
+#     @@cook_menu << menu_info
+#   end
+
+#   def self.show_all_calorie
+#     total_calorie = 0
+#     puts "-----------------------------"
+#     @@cook_menu.each do |menu|
+#       puts "#{menu[0]}   :#{menu[1]}kcal"
+#       total_calorie += menu[1]
+#     end
+#     puts "-----------------------------"
+#     puts "カロリー合計   :#{total_calorie}kcal"
+#   end
+# end
+
+# while true do
+#   puts "[0]:カロリーを入力する"
+#   puts "[1]:カロリーの合計を見る"
+#   input = gets.to_i
+
+#   if input == 0
+#     Food.input           # カロリーの入力
+#   elsif input == 1
+#     Food.show_all_calorie # カロリーの合計を表示
+#     exit
+#   end
+# end
+# -------------------------
+# Rubyドリル69 インスタンス生成版
+# class Food
+#   @@foods_menu = []
+#   attr_accessor :name, :calorie
+
+#   def initialize(name, calorie)
+#     @name = name
+#     @calorie = calorie
+#   end
+
+#   def self.input
+#     puts "料理名を入力してください:"
+#     menu = gets.chomp
+#     puts "カロリーを入力してください:"
+#     calorie = gets.to_i
+#     @@foods_menu << Food.new(menu, calorie)
+#   end
+
+#   def self.show_all_calorie
+#     total_calorie = 0
+#     puts "-----------------------------"
+#     @@foods_menu.each do |menu|
+#       puts "#{menu.name}   :#{menu.calorie}kcal"
+#       total_calorie += menu.calorie
+#     end
+#     puts "-----------------------------"
+#     puts "合計金額   :#{total_calorie}kcal"
+#   end
+# end
+
+# while true do
+#   puts "[0]:カロリーを入力する"
+#   puts "[1]:カロリーの合計を見る"
+#   input = gets.to_i
+
+#   if input == 0
+#     Food.input # カロリーの入力
+#   elsif input == 1
+#     Food.show_all_calorie # カロリーの合計を表示
+#     exit
+#   end
+# end
+# -------------------------
+# Rubyドリル70
+def get_week(year, month, day)
+  leap_count = get_leap_count(year, month)
+  days_array = %w(0 31 28 31 30 31 30 31 31 30 31 30 31)
+  days = 0
+  for i in 0...month
+    days += days_array[i].to_i
   end
+  days += (year - 1) * 365 + day
+  puts days # debug
+  index = days % 7
+  week_array = %w(日 月 火 水 木 金 土)
+  week_array[index]
 end
 
-dog = Dog.new
-Dog.say
-dog.say_type
-dog.self_introduction
+def get_leap_count(year, month)
+  count = 0
+  for i in 1..year - 1
+    if i % 4 == 0 && i % 100 == 0 && i % 400 != 0
+    elsif i % 4 == 0
+      count += 1
+    end
+  end
+
+  if year % 4 == 0 && year % 100 == 0 && year % 400 != 0
+  elsif year % 4 == 0 && month >= 3
+    count += 1
+  end
+  count
+end
+
+puts "年を入力してください："
+year = gets.to_i
+puts "月を入力してください："
+month = gets.to_i
+puts "日を入力してください："
+day = gets.to_i
+
+week = get_week(year, month, day)
+puts "#{year}年#{month}月#{day}日は#{week}曜日です"
+
+# 閏年を考慮する
+  # yearに対し4と100で割り切れ、400で割り切れない年号がいくつあるか（閏年）をカウントする
+    # 閏年のカウント結果を最終的に足し算
+      # (審議)入力値が3月を迎えているかどうかで1を加算・減算
+# 月毎の暦配列を用意しmonthを上限の添字として配列内の暦を加算（forメソッド）した結果を変数daysへ代入
+  # 累積日付 = (year - 1) * 365 + 変数days
+# 曜日の配列を用意（日〜土の順）
+  # 累積の日付を7で割った余り（剰余）が曜日配列の添字になる
