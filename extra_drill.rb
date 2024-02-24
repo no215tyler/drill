@@ -1,4 +1,4 @@
-# Rubyドリル71
+# Rubyドリル71 & Rubyドリル72
 def register_item(registered_item)
   items = {}
   puts "商品名を入力してください："
@@ -7,7 +7,9 @@ def register_item(registered_item)
     items[:price] = gets.to_i
   puts "仕入れ値を入力してください："
     items[:purchase] = gets.to_i
-  line = "---------------------------"
+    items[:profit] = items[:price] - items[:purchase]
+    items[:profit_rate] = (items[:profit].to_f/ items[:price].to_f * 100).round(2)
+    line = "---------------------------"
 
   puts "商品名 : #{items[:name]}\n#{line}"
   puts "販売価格 : #{items[:price]}円\n#{line}"
@@ -16,6 +18,8 @@ def register_item(registered_item)
 end
 
 def check_items(registered_item)
+  total_sales = 0
+  total_profit = 0
   line = "---------------------------"
   puts "【商品一覧】\n#{line}"
 
@@ -23,7 +27,15 @@ def check_items(registered_item)
     puts "商品名：#{item[:name]}"
     puts "販売価格：#{item[:price]}円"
     puts "仕入れ値：#{item[:purchase]}円\n#{line}"
+    puts "利益 : #{item[:profit]}円\n#{line}"
+    puts "利益率 : #{item[:profit_rate]}%\n#{line}"
+    total_sales += item[:price]
+    total_profit += item[:profit]
   end
+  puts "総売上 :#{total_sales}円\n#{line}"
+  puts "総利益 :#{total_profit}円\n#{line}"
+  average_profit_rate = (total_profit.to_f / total_sales.to_f * 100 / registered_item.length).round(2)
+  puts "平均利益率 :#{average_profit_rate}%\n#{line}"
 end
 
 def end_program
