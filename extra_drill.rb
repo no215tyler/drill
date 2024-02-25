@@ -90,20 +90,34 @@
 # puts number
 # -------------------------
 # Rubyドリル74
-def bubble_sort(data)
-  # 配列の数を数える処理を記述
-  length = data.length
+# def bubble_sort(data)
+#   # 配列の数を数える処理を記述
+#   length = data.length
 
-  for i in 0...length
-    for j in 1...length - i
-      if (data[j - 1]) < (data[j])
-        data[j - 1], data[j] = data[j], data[j - 1]
-      end
-    end
+#   for i in 0...length
+#     for j in 1...length - i
+#       if (data[j - 1]) < (data[j])
+#         data[j - 1], data[j] = data[j], data[j - 1]
+#       end
+#     end
+#   end
+# end
+
+# # 呼び出し例
+# number = [1,23,4,6,12,45,79]
+# bubble_sort(number)
+# puts number
+# -------------------------
+# Rubyドリル75
+def check_index(text, search_string)
+  index = text.index(search_string)
+  unless index.nil?
+    puts "特定の文字#{search_string}は、#{index}番目です"
+  else
+    puts "特定の文字#{search_string}はありません"
   end
 end
 
-# 呼び出し例
-number = [1,23,4,6,12,45,79]
-bubble_sort(number)
-puts number
+check_index("hello","h") # → 特定の文字hの位置は、0番目です
+check_index("world","e") # → 特定の文字eはありません
+check_index("apple","p") # → 特定の文字pの位置は、1番目です
