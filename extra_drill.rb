@@ -109,15 +109,24 @@
 # puts number
 # -------------------------
 # Rubyドリル75
-def check_index(text, search_string)
-  index = text.index(search_string)
-  unless index.nil?
-    puts "特定の文字#{search_string}は、#{index}番目です"
-  else
-    puts "特定の文字#{search_string}はありません"
-  end
+# def check_index(text, search_string)
+#   index = text.index(search_string)
+#   unless index.nil?
+#     puts "特定の文字#{search_string}は、#{index}番目です"
+#   else
+#     puts "特定の文字#{search_string}はありません"
+#   end
+# end
+
+# check_index("hello","h") # → 特定の文字hの位置は、0番目です
+# check_index("world","e") # → 特定の文字eはありません
+# check_index("apple","p") # → 特定の文字pの位置は、1番目です
+# -------------------------
+# Rubyドリル76
+def text_transform(text)
+  puts text.gsub(/[\s　]/, "").upcase
 end
 
-check_index("hello","h") # → 特定の文字hの位置は、0番目です
-check_index("world","e") # → 特定の文字eはありません
-check_index("apple","p") # → 特定の文字pの位置は、1番目です
+text_transform("hello world") # → HELLOWORLD
+text_transform("ruby on rails") # → RUBYONRAILS
+text_transform("a　bc") # → ABC （全角空白が含まれている場合も削除される）
