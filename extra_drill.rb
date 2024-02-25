@@ -123,10 +123,23 @@
 # check_index("apple","p") # → 特定の文字pの位置は、1番目です
 # -------------------------
 # Rubyドリル76
-def text_transform(text)
-  puts text.gsub(/[\s　]/, "").upcase
+# def text_transform(text)
+#   puts text.gsub(/[\s　]/, "").upcase
+# end
+
+# text_transform("hello world") # → HELLOWORLD
+# text_transform("ruby on rails") # → RUBYONRAILS
+# text_transform("a　bc") # → ABC （全角空白が含まれている場合も削除される）
+# -------------------------
+# Rubyドリル77
+def sum_number(n, m)
+  result = 0
+  for i in n..m
+    result += i
+  end
+  puts result
 end
 
-text_transform("hello world") # → HELLOWORLD
-text_transform("ruby on rails") # → RUBYONRAILS
-text_transform("a　bc") # → ABC （全角空白が含まれている場合も削除される）
+sum_number(1,3) # → 6
+sum_number(1,10) # → 55
+sum_number(5,15) # → 110
